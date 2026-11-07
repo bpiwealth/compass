@@ -579,10 +579,12 @@ function sync(){
   $('amYHint').textContent=(H.x>0&&lateY>H.x)?`A loan runs past your retirement age of ${H.r}. Only the ${H.x} years before retirement are counted, so plan how the remaining payments will be settled.`:'';
   $('amYHint').style.display=$('amYHint').textContent?'':'none';
   $('glChip').innerHTML=`Group life: <b>${fP(groupLife())}</b><br>Monthly salary × 24 months${num('sal')*24>GL_CAP?', capped at ₱10M':''}`;
-  const box=$('ncf');box.className='ncf'+(net>0?' pos':net<0?' neg':'');
-  $('ncfV').textContent=(net<0?'(₱'+fmt(net)+')':'₱'+fmt(net))+'/month';
-  $('ncfS').textContent=!(inc||liv||am)?'Enter your income and expenses to see your monthly surplus.':
-    net>0?'Salary and other income, less needs, wants and loan payments.':net<0?'You are spending more than you earn, so there is no surplus to invest.':'No surplus to invest.';
+  const ii=num('inv')*dashYield()/12,tot=net+ii;
+  const box=$('ncf');box.className='ncf'+(tot>0?' pos':tot<0?' neg':'');
+  $('ncfV').textContent=(tot<0?'(₱'+fmt(tot)+')':'₱'+fmt(tot))+'/month';
+  $('ncfS').innerHTML=!(inc||liv||am)?'Enter your income and expenses to see your monthly surplus.':
+    (tot>0?'Salary and other income, less needs, wants and loan payments.':tot<0?'You are spending more than you earn, so there is no surplus to invest.':'No surplus to invest.')+
+    (ii>=1?`<br>Includes about <b>${fP(ii)} a month</b> estimated income from investments.`:'');
   $('invCard').style.display=ns?'none':'';
   $('invF').style.display=invests==='Yes'?'':'none';
   $('spentNote').textContent=invests==='Yes'?"Whatever you don't invest is kept in your deposits.":'Your monthly surplus is kept in your deposits.';
@@ -901,7 +903,7 @@ function buildReport(){
   const f=c.fund&&c.short>0?fundCalc(c,+$('fR').value):null,spM=+$('sp').value,sr=spendRes(c,spM);
   const inputs=[['Current age',a.a],['Retirement age',a.r],['Deposits',fP(c.dep)],['Investments',fP(c.inv)],...(c.inv>0?[['Estimated return on investments',trim(c.invR*100)+'% p.a.']]:[]),['Home, car and other property',fP(num('prop'))],
     ['Monthly salary (take-home)',fP(c.sal)],['Other monthly income',fP(num('othInc'))],['Needs, monthly',fP(num('needs'))],['Wants, monthly',fP(num('wants'))],['Total monthly debt payments',fP(c.am)],
-    ['Net cash flow, monthly',fP(c.netNow)],['Home and car loans: balance',fP(num('hcBal'))],['Home and car loans: monthly payment',fP(num('hcPay'))+(num('hcPay')>0?' for '+c.hcY+' yrs':'')],['Credit card and personal loans: balance',fP(num('ccBal'))],['Credit card and personal loans: monthly payment',fP(num('ccPay'))+(num('ccPay')>0?' for '+c.ccY+' yrs':'')],
+    ['Net cash flow, monthly (incl. estimated investment income)',fP(dashNow().ncf)],['Home and car loans: balance',fP(num('hcBal'))],['Home and car loans: monthly payment',fP(num('hcPay'))+(num('hcPay')>0?' for '+c.hcY+' yrs':'')],['Credit card and personal loans: balance',fP(num('ccBal'))],['Credit card and personal loans: monthly payment',fP(num('ccPay'))+(num('ccPay')>0?' for '+c.ccY+' yrs':'')],
     ['Group life (salary × 24, max ₱10M)',fP(groupLife())],['Other life insurance',fP(num('life'))],
     ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of cash flow invested',fmt(c.pct*100)+'%'],['Return on regular investing',trim(c.regR*100)+'% p.a.']]:[]),['Monthly expense at retirement',(expMode==='own'?'Own figure, ':'Computed, ')+fP(c.monthly)],['Other income in retirement, monthly',fP(c.oth)],['Expected retirement pay',fP(c.pay)],['Years in retirement',c.period]];
   const assump=[['Deposit rate','0.05% p.a.'],['Salary increase','3.5% p.a.'],['Retirement fund return','4.25% p.a.'],['Inflation','3.75% p.a.']];
