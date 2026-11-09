@@ -22,8 +22,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--g800);font-size:16
 button,input,select{font-family:inherit}
 button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .hero{background:linear-gradient(140deg,var(--ruby-dk),var(--ruby) 60%,#b82235);color:#fff;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 18px}
-.hero-in{max-width:560px;margin:0 auto}
-.logo{display:block;height:30px;width:auto;margin-bottom:12px}
+.hero-in{max-width:560px;margin:0 auto;position:relative}
+.hero-so{position:absolute;top:0;left:0;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.12);color:#fff;font-size:.78rem;font-weight:700}.hero-so[hidden]{display:none}
+.logo{display:block;height:30px;width:auto;margin:0 0 12px auto}
 .hero h1{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.15}
 .hero p{font-size:.84rem;opacity:.86;margin-top:3px}
 .wrap{max-width:560px;margin:0 auto;padding:16px 16px 24px}
@@ -59,6 +60,10 @@ h2.t{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1.22;tex
 .ncf b{display:block;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .ncf.pos b{color:var(--green)}.ncf.neg b{color:var(--ruby)}
 .ncf span{display:block;font-size:.76rem;color:var(--g600);margin-top:2px;line-height:1.4}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1.5px solid var(--g200);padding-top:10px;margin-top:4px;font-size:.88rem;font-weight:800}.tot b{font-size:1.05rem;font-variant-numeric:tabular-nums}
+.ro{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--g50);border-radius:var(--r-sm);padding:10px 14px;margin-bottom:16px;font-size:.9rem;font-weight:700}.ro small{display:block;font-size:.72rem;font-weight:500;color:var(--g500)}.ro b{font-variant-numeric:tabular-nums}
+.ready{border-radius:14px;padding:12px 14px;margin:0 0 12px;border:1px solid;display:flex;gap:10px;align-items:flex-start;font-size:.86rem;line-height:1.45}.ready.H{background:var(--green-bg);border-color:var(--green-bdr)}.ready.W{background:var(--gold-bg);border-color:var(--gold-bdr)}.ready i{font-style:normal;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:2px}.ready.H i{color:var(--green)}.ready.W i{color:var(--gold-dk)}
+.dpct{margin-top:10px;padding-top:10px;border-top:1px solid rgba(0,0,0,.08)}.dpct .adj-top{margin-bottom:2px}
 .sec-l{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g500);margin:4px 0 10px}
 
 .nav{position:sticky;bottom:0;z-index:5;display:flex;gap:10px;background:linear-gradient(to top,var(--bg) 78%,rgba(248,247,245,0));padding:14px 0 calc(10px + var(--safe));margin-top:4px}
@@ -87,6 +92,9 @@ h2.t{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1.22;tex
 .adj-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
 .adj-top span{font-size:.8rem;font-weight:700;color:var(--g600);line-height:1.3}
 .adj-top b{font-size:1.08rem;font-weight:800;color:var(--gold-dk);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dsum{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin:6px 0 14px;padding-bottom:14px;border-bottom:1px solid rgba(0,0,0,.08)}.dsum .val{font-size:1.2rem}.dsum .sub{margin-top:3px}.dsum .one{grid-column:1/-1}
+.adj-h{font-size:.74rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px}
+.dl2{display:block;margin-top:8px;padding-top:8px;border-top:1px solid var(--gold-bdr)}
 .adj-res{font-size:.84rem;color:var(--g600);margin-top:8px;line-height:1.5}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:32px;background:transparent;display:block;touch-action:pan-y}
 input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:var(--g200)}
@@ -113,7 +121,7 @@ input[type=range].gr::-webkit-slider-thumb{border-color:var(--green)}input[type=
 /* dashboard */
 body.wide .wrap,body.wide .hero-in{max-width:1120px}
 .dash{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 10px;margin-bottom:12px}
-.d-in{grid-area:1/1}.d-ex{grid-area:1/2}.d-as{grid-area:1/3}.d-li{grid-area:1/4}.dncf{grid-area:2/1/3/3}.xfs{grid-area:2/3/3/5}
+.d-in{grid-area:1/1}.d-ex{grid-area:1/2}.d-as{grid-area:1/3}.d-li{grid-area:1/4}.dncf{grid-area:2/1/3/5}
 @media(max-width:860px){.dash{grid-template-columns:repeat(2,minmax(0,1fr))}.dash>*{grid-area:auto!important}.dash>.dncf,.dash>.xfs{grid-column:1/-1!important}.d-in{order:1}.d-ex{order:2}.dncf{order:3;grid-column:1/-1}.d-as{order:4}.d-li{order:5}.xfs{order:6;grid-column:1/-1}}
 .dc{background:#fff;border:1px solid #eeecea;border-top:4px solid;border-radius:14px;padding:12px 12px 8px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .dc.g{border-top-color:var(--green)}.dc.r{border-top-color:var(--ruby)}
@@ -204,7 +212,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
   body>*:not(#report){display:none!important}
   #report{display:block;font-size:9.5pt;line-height:1.4;color:#222}
   .rp-h{background:#9B1B2A;color:#fff;padding:14pt 16pt;border-radius:6pt;margin-bottom:10pt}
-  .rp-h img{height:20pt;display:block;margin-bottom:8pt}.rp-h h1{font-size:18pt;font-weight:800}.rp-h p{font-size:8.5pt;opacity:.85}
+  .rp-h img{height:20pt;display:block;margin:0 0 8pt auto}.rp-h h1{font-size:18pt;font-weight:800}.rp-h p{font-size:8.5pt;opacity:.85}
   .rp-s{margin-bottom:11pt;break-inside:avoid}
   .rp-s h2{font-size:9pt;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#9B1B2A;border-bottom:1.2pt solid #9B1B2A;padding-bottom:2pt;margin-bottom:6pt}
   .rp-g{display:grid;grid-template-columns:1fr 1fr;column-gap:16pt}
@@ -245,14 +253,15 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
   <img class="logo" alt="BPI Wealth" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApQAAAB2CAYAAAB23AOcAAA7iUlEQVR42u2dd7gkVbX2f1XdZ2ZgGNLISBpyGHIUyYoicFWCoBcMwEW5YkRB8Zpz4hq4IKKiYsCMDKDgxewVQTAjCJJzGiRNYJiZ01XfH2vt76wpuruqu6vzep+nnjPnTJ8+1buq9n73etd6V5SmKQOCCEiBacAHgeOBZwJ3AV8APq2vQV/ncDgcDofD4RgEEjcghDLSowpcCLzYEMdAIs8FTgJiIPFL53A4HA6HwzEYiAfkPCpKEl+jZHK5IZMpMAm8Fnihvq7il87hcDgcDofDCaVFCJMerIQxNpHJ8DUBDsr8zOFwOBwOh8PhhHIlgrikCVmMgcV+yRwOh8PhcDicUGb/fhWRsGPg+yafEhO9rOjXi/R1sfkdh8PhcDgcDseYEcpQfBMhMvYksEz//b/Ad01OpS3M+QzwZ/35cqBm5PGqy+AOh8PhcDgcjHyVd6Tkr2Z+thWwF/AsYFtgI2A1xC4oi/uBRYiN0PXAH4Cr9XsyxT1uK+RwOBwOh8MxIoQyMpHQQCTXB44BXgrshvhOtoslwDWIVH4B8FiGWOLk0uFwOBwOh2O4CGVkKrTTTDRyNvAOxBpotvn5MqbyKKnjP1kPk0oYLRm9DzgbOAt4kpWjluF8PHrpcDgcDofDMaCEMpDIGk/3l5wN7I/kQG5kCGEKTJjv/whcBdwAfBRYT9+voj/7bySiuS+wi/kbK0yRDogcfirwF+DROgSyqsTSzdEdDofD4XA4BoBQZvMiZwF7AvsBOyM5knOAtQxxrBhz8ieALwHfBP6hr9kbuCIjmS8Dtgbu1r+3KxLpPAGYrn8/nEdVf+dfwIPATUgxzxVKWpd5vqXD4XA4HA7HYBBK2wJxB6STzWFMRSEtkkwuZQWxAHobcAdTkcMUOB94uZLPqvn6CeD9hpgC7IjI3PuZ1yV1rIcCbkFaO34ZuD3TQ9zhcDgcDofD0UNCGcjkGog8fRJT8nXAnUhkcnVD3AKZ/CTwrgyRrCE5kTcAmxtLoPA7VyDSeWzOIUQ8vwocb16bmijlMmDDzLktAv4H+LC+h5NKh8PhcDgcjh4SykAmNwMuAbY3RG4Z4iP5TeAp4HJEBsfI3OcqAa2YQpnwnlsANxqSGZmvC4AtgYXm51a2/gnwb0b+joB7gRfo7x0PHMXKRT+/QarNH3FS6XA4HA6Hw0FPjM0jU7F9uZLJZUrs/ox4Sp4A/Bo4BYlOBsIXI/L2W/XfqZHCw/tukpGtLZ6BWA7Z19fMv08EHjefaRKJTJ4A/FiJ4/P1HCI97+ci0vv0JjK5w+FwOBwOh6NEQhkiiacjUb+nlIz9XcnaX5UQboLkU6bmdyLgc8DSTP6lJYjrsXLOpc1xjJkyPI8y+ZlVxPj8fCOtB9J6rBLbKvAr4AAkcjlNz38/4O0mUupwOBwOh8Ph6BKhDPmMmyhJS5C8yRoSHXwCmIFEBndTopmYiuoa8DPTcrEe1mjw8/D61Rv8f5CwLzXnGhuSurWe1wyks84ppgVkApys713zKKXD4XA4HA5HdwklwIFIdC8UxFyN2PFUTPX1RpkuNRGS+/iA/qxRrmJe15yJOhFKzHvey1Q00xqZz2VKBo+R3M87DKGcA+zRx/7mDofD4XA4HGMjeYN4S9r8xz/VyT+sUd9QvJrz3rWC/9+IkFbrkM2s4XqEmKFfmznXrRqQVYfD4XA4HA5HyYRyWoZ0LWTlSCHArXXaMM5CKsOjJn93Mc2LgZbkdOqZlynWCZHK2410Hsjvosw5T/PbweFwOBwOh6M3hPLuzPfrGlIWopZXIVY84WchQni0kaSpQ0QXNDiv8P0jTSKUKWKITiaaeaMe2X7ez8yQ0bv9dnA4HA6Hw+HoLqEMZPHnSsiCfP1cVjYTryD2PWdljMlTpHhnc0RyrtYhlHfXIZypMSO/vw6hnEByI/cFDs34WkZID/CQ7xkinWsBzzKfYxFwZUHZvZuIBuQYdEQDfIz6ODkcDofD0TGhjIHrkGrqKuLluCXwaiViE4YQno5EKgPhS4DVgO8AM02rREsQ70C629ifpabzzsOsbHY+oeR0PcRMPRDXSf2/C4BvZPp8J4hN0Fp6/jHwNeChDDHuB9IBOWyf9orJf63q93GfyUU6wEd4rrJjFo3IODkcDofD0XGnnJCTuAnwF2BNYLkehyKdZ1AylyAG6BcjhueW6P0fIk8/oAtthakq7J8hleSJqRwP7RX/E8l1TExF+TykP/e2Si5DJfglwCv0Z5ivxwDf1u+nI/mVuyO2RzSxNOoFVkVyTZM+kI6ajukKJdpFUKmTStBtVIC1B+gZCikdYdwmcyKGlR6NV6zjVBaRDcVtjzqxdDgcDkeZrRefB/yIqWjjcuB9wBcQ8/KAGYjs/KZMP+97gP8CvpdZoN4KnGFeF74eoSQxYDoioX8EiTaGCOpTwCeQPt0WayKRyXfr4j8NeBBpzXh9HbP1XqKqY3ga8F4dyyq9I0SWUC7XMVyCpC48gkSG70Fsme7Qfz9QhzzFJhqcdoEgJbqZuUavXzoAMmxNzyuM22Ikyv4g4nl6K3CTfl1QhxyXnWYRxmkDxIFhRgnjFDZ3D+jma4m3KnU4HA5Hp4TSGpXvDnwd2M78303A95FI461KSCb1te8DXpTJwfwDIlf/VF8/AdysxCHI4tcAe+piOQ94MdKbe1uzIK8AfgB8TH9/OhIh3Qbp8f0ypvwxAX4PHKd/M+5zZDIQyg8AHxyC+2YJcB9wA9Jy8/dIl6RHM/dIWuK4hmu0uV7fYfMLfVyfjd8hechXMeU0EBkiXtY4zQVuMxH7MrBAx3+xE0qHw+FwlEEoLamciUQaX61REYsnkOjWU4i90Eyk/3fFEI1ADJbpgvsXYFdgRxOd/B0SFdsF8YuMDZGMTW/u65SYzQJWQQzLV8uc021IFPVMI6fX+nwdAqF8LxJZnexhhJI6BVBZOZwM8akX7XoYMbn/MXAZUwVUcUmpBIEobaZEdlAilPXGLjtu9XIo79VxOp+pgrAyxsoSyn/qc1BGhDLWazrPCaXD4XA4yiSUZCJ7ayupfI1GMSoFo0gJU/24i2Iy016RHEkyRaJaXwa+Yvwu+x2ZzBLK9/WZULZb7JG9Fo8rsTxXNwOYTURaAqG8cQAJZZExSxqM16+BzzLVOrSTTY4llDd1gVBu7YTS4XA4HGX4UNpoVfBz/DrwC6Qn9lxEZrPFGvaodw5V89rJOgtVYirFg1weNyGniXltqFLeGMmhvEoX74khIySDZkdjK8Bjk4dZQ/JVjwWuQPJedzPEPh7jMcuOV7jXD1ACfimwQyby7nA4HA7HSBPKkCO3L5LPuIuSyZkZD7w4c+SRlHrtE2OzEEc5n8ce9rUzEUl+B+AUJJ/SCWX5hKliyGUKHIbkWH7M2DZ5v3QZr6opVEuQ/OKrkcK0xFuBOhwOh2McCGXA9kxVBzeTwNJMxLJmjsk2D/seNirZyDMvRYp3EkS68wW7u+QyMv6k70ai2Os5qay7OQtFOasiLgffMJF7v0cdDofDMbKEMhC2HQ15SOoQvqRBxLJijmqbh30PG5WMzPnUGpzPjk4oe0aWApF/DuJVupGTyqZjNYk4EFyM2P54lxqHw+FwDDSqHfrvxYhlUFTAnmQpYjezGKn4XgQ8qd8v1v9fjlRrrzBkMDWEcQIpxpiOFBvMRKq4ZyKV3bOA1ZEoz6oNCEv4zM9q0hfcQekRy9AxaSvgJ8A+eg94cUd9KXwF8ELgu8BLSihqcjgcDodj4AilrbjdXAniQ4iZ832Ixc99+rMHgMeQyt8nEAuhZV36PNOQiM7qSGHI2kjR0DOBDfVYDynQWc9UVzup6d39tkI3IV9BvEEHwbZpEBHaih6BGPW/y8fK4XA4HKNGKAP5+hewB2In8q8WF7soE0GMCryGBn2+E9OtZLkS3HtpLi2uyZT87WSyt0RpEngpcBTSNtOJUnM7qXciZui/8rFyOBwOxygSyseRDinNjK/TOgQQUwlMF4tC4kz+mbUmemQMrm8rnWoiVs51pcuybopUfv8YicR5lLj+OIVrcTbipOBj5XA4HI6hJpRR5qhlyEGZJDG85zOQCGi2MtzmWi5H8i+XZvIwJ2mtGCJqYNo9CtXWtGFknXTw+0W7LG2NWOVcNACRt5T2jN3zOgiVNVbbAP8BfMlELh0Oh8PhGBpCWcnY8XSyENNCjmYNKZy5rAD5CSRymZLKhUi+5kKkv/RDSGvAh8yxAImwLh5BCTFYzSwB/pjzuhjJPV0NyTmdjeShxpkCrEqXuu0cp4RyEMh3p6+tNUnTKGOD9Tbga7qRYgyjtd3YHPTrPNMhH8doCOdEv3+H63yjEVuTR31OK0QoA9laFVgf2BQpxpmvJK2b8tukiZbFDeTZWAnQjBbfeylSLLQAybe8C7gduEOP+/TzDTOhvBXpwlIUqwDrAlsAewMHA3uZTUVccuQtQozx19ANQK+lXEu8j0DygPPOoarPwmx9HrZBpOhddPy6QcBDEdyWwIFIlfy45VKmfp4DdX6ectH6htCfN7/HRnpOqxYooPgkEincFKmWDi0L5/ewxV8zz8yU5gU7aR0iWtHFfxUlBTvXed/HkA4vhw5Iv+92iUhcYFIL0cKlhlD/HPiQEst36jiUabJt0xq2Q1pixn0iSZPAH5CIdrvYHLH3eb1uuMom4CEF4RgllIxZIdesgs9hrJuTWp+etzUKTMCpnmM/ogwTiBqRFHj9wibjGObPYZkbF/VxA5bqJnR6gXsj0rWn35hlGivkne+iLqTgRIhby7BHKSMdm0V1uNesguNb63Bt6nROW71TQhkiIhsAp9Yp8riG7kcn2w3Htio5NcqHWwt4ATAHsUOKh5RYJgV3ydminHAjX4W0TzwZOLPkPtM1vQe30b8T9fEeWg1Jf4hakPoi8zluAz4NnIvY/Lyh5EhlGPMDdHF6cgyKc8LnWxNJ3ZiVs6mZRNI3zgA+3MNc0/B3TgI+jqTgVJvMOQlwEPC3Hs4rodHDN4BDkLSJSoP5IgbuRtSJWuY+C5/1A/p5l3foZ9wrHAD8vcfzeLhP10Raqq5j5s9G9+8EYhHWj1zpyDxfPwXm5ZxvovfQUcCvS1JNwjnM1md+9SHuFhbG56/A8zM58SGdr8j43gnsqc9ar+b88JxsrvduR4QyXLx5phimYtro3WwGZ3LIc7KiHLKzpRLKaEzC72kDafosHY/PmGhZWZg7IA9/0sEDG6LBC4E3Ivm57y4xUhnreW2IRHT/2MeIbi/vyVg3rzcqESqClyuxq/V403askociOLKHhDKQyXWBw5lKzWiG+YhncCNSs3oLn5UBiXLTh85XoevVVi38ns2V7temcbYGVSjo/9wNQrMO0rRk2DG7wZgVHd/FfeQfVaS2oqPWi+HkdzCRERuVuhbGImcr0sV7nFs01gy5/izdkabXHoFxCnZUsY7Ve4D/K3mswvvsPEb3ZJijvmuiOGmDI2wKttYxSrvkUlBvJ78VsLs5h0bnGM7/8B5uCMKm8N+UTDYbw3A+36N5/tSkaamaDsnRj7lzOvAmM7Z55zipQYzDenT/NsKKAudc6/LYrjDPdTqER808I43SzGpt/n4veVDhIy8vcacGk/v1Y5SYvSMOmw5wDt3pcDQqsCkG7+8S8dt2zDY0AD/TnXqV+jZmkSF3kRK2XpDuMCcerlGwJON/mz3C+W+vc0vag572YUF+aZOxiwyBuUc3jjSJnkZDdvQjshM2DlsY+bLouZ6SM/70yAO3n2MbjdAxqGNc6nWIcwoAts3IbTFizXPLEFYppW1K4ttlFrZxRViUrjH5V2nJpGFUECTCq5D0kLJlzU3HaEMX5p0HkYhv3iIb5rTDehQBDDmGL22BwIa8qcNzlKIy5e71gP1z/l4Y158gBXpVr+buuIjulBbHMDhq7A3sZ4iow8GwyEmNkmI3q1PQcS9iqTNMC1o7LD+MzRZIHkc6xrK3vdYPU34V4mMj+mxNKgEvK9IQ7r91+hy96MdYRkibzqK5pr2IAIa/tQ2wWwsSZTifI3pAeq3cvZohwM3Oa75bA3U85okSwj3bkK7Dc32qD6Vj2AmlJVJrGCIVJpdbkAhVPOATTmIiRU/ojtvmMBXFM5kqGon8lmGyCwvg3YyuEfetXXjP1cdswQ/R8csR2TsvOh4igId1OQIY3vclLVa4hrlzRyW+3SS9YeyOKvC6WAMGvxuzDUu3cGqb4xju7xfpZiXpQVqEw9G1CCU60Vk5Mkzg/8gho5XM/1UyP4tMRWzUZZksSDYvQ7wUQw5T1IL/UwVJ8ndCKViN8irvwq79hhEmSN3wG5xhxi4aE0IZAw8Av21B9j480yaWLsndR7ZxLXohe7cqd6eI3P1kyXJ3aor7+nWkPVxTEyWCL9S/W23jugVHlTePsTo2WeJRG6K/PVKEkgYFOeGGvi5n4q9lJvta5mdpphKyW9XZNwJnA0cjrRb/DLwC8WG7vyCpTDPkOhrzzUcEbEI53mDh9/9l7imPiHQvhWNU7r/5LUQAd0JyoLsRAQx/Ywfaqyi3sne3SG+rcnfUJbk7MoGFfh3VHns5vlkJYa2Da5cCr0TsnpIxe+YjJO2uquNY7fCotFFU1ekxTb+uxRj38k4akKgwAd5YZ/EPD9FmiAXMEuCfehEP0IjKAqQbyaqIxUaMdGR5tESvrRDJ+D1ie3EZksh/KrCHTvwna0TsdUqOihCj7T2n6P9foxdnfDo7ie5UEEPcJ0a4leDaXbLTqI1pUdj/6vySl9cc7s9DEVeKsgujwvsdafJlq20Q0p10frmuC+eYre7Omzfvo1y5OzzjPwW+3iHB6nTuuq0Hc3hs/D5fWWCTkeRY903q5v1E4KN9MDqnz52N3sBUd6Gowyj9BsBpBX9nCfARxIc1KqmgcCwJZRj8VY0Rq3XPfwLpd519MENi+WcRCec6JD+oAvxQH4rfKLmcB/xJf+8EnWjKNkhfpgv5s5G8q4VIr+4ngeeav5fkRHtiY/A+zhG0MF6zgf8syR8tjPtXGO0ipi268N5PNjGiH3XZ+37gCsTkvFkFbGQigJ/sApEJkvVLOpCsA+k9rAuEMrzX+hSTuyND1sva3IV78+/G13KU+yeHjcWJuuY122QUiZqHTcdJSPenceiOlZo57guU64xxWkHV7EngdBwdS95hEt5Ed1lkim/uBB5pclMn5qKETgqhh+pypHXarC4+3OFcn6uRg2nAF/Vc7gcu0v8/DjGPrWQ+X61B7+9NlEyNUy5LZPJQg1T2NaRIqVP5JUQufo/0DB+1ji9hYzahm5qycuTCvfloD+xmhr3aO0iGuyI50GXK3mHO2BmRvNt978gU9ZQte4exeiESzS0id1/Ypeu2is4jM0qSEts5oh488zUd65Ny7omwjvxMyUvepmBD4Jg+G533K+DVD9k50oBUv+T2kYlQ2oTi2Cz8ITpws7mpa00mpi2RavCQBxErybvVyB6VLkczNgIORELdYWe3L5JHOQexv/kB0i5t9QYPq+0lvImS6WEjP5WCvbztAmdd+hP97OcguVidXjvrrP/WESXp4fnYD+mFmpRMKO/LPK+Moez9JKKkFJG9X4yk4JQ1XuF9jjLSZLWDPLmdEc/ff5R4jtnq7jQnUhYiv91QYqzjxuSIqzhHKwFsNE/aCNxxSOT2OTnR9hR4C6Lm1casKKesZ7XdopzI7bM6L8rZocEk9I8C/a/DRZiD+OWlZsKdozuFyTbse1qtvLwQeJVG1TYFLkBMZvdFcqrW0Ul0H7NL/A5T+Q5pZnKdN4SFOYkpiposUAlpq9KqSAP7zyDN7csik+FeeC+SU1sZMVJkSfkHuhSJv4nxNYsOuX5FyI+NAFJyC8wqIqfnRYrTgtH6Mqu9rdy9X2ZjWe/vpxm52xfQ9lWXtxSwtIqAi5Fi0a/nrCkVU/x1yBhGKR0Mb4Qyzanwvj7n/dao8571bv7pTNmfdIsk32F2gu9G/OumIZHT1wJXAu8CPg6cqQ/3EsRiyBKnNNMxhyGz+NknJ0IZI1Hj1ZRkb6TkeSem7JIoiUwGK4wv67iPUiFOZKTQSaTt4v4lR+PDvX3tGBeJhTGeDxycMwZh3HdHcllvLSECGO7Z3ZCoYp7cHRXcgBwBfKKk5yGMkZW7KyVUzzua3xMHIbUDSc54p8BZJvDxYZ13GykZqfG1vMwJv2MYCGU938U4s0u6uUFUINzgXwWuRjqf1HJyamYiEap2JZZaxtsyYDEiYR8NbIwkhH9OP+tyk7v3JyQCt6OSm/WBvyjhqZdHue0QLeJhXDZnqmqTDmSHSoekaNLkk5ylu/hBk2tb7Zua7YFcM/fkR4H3lEwmA3FZgkSMx7VIzPolLtW5pJnsPakbyRfpxrHT+y78naMKuh0s1Y1zlBOB2kU3cjeWcI6tmpk/QLG2lo7mUehTc9aIMB9ciXTQmtD16qvAh5oQyqDiHKBr1p9G2BXDMWKS97pIzlw2qvUvpFK63gMTJqHvIlLmbTqJV/ShCUdFf36hvu5vbU5iqfFYizJy1nlIBOxHSowPy3yO8Por9Wdz9KHeo0Hyevj3VkP6EKc5R2KkcWvGmphNR9RBRDLR91iIRIbfYnbp6YBJVqlZjIuMm00lmKFRpiuVTJbdgzec11+UAMRjGqlotaNLVvZOSrhPJsiXqMO1+aDOnXlEo1pSZ5/Y2KQUNTO/3OVu6NAvcjfgeQUl6c9n7s3zCox/KIR8q18jB0MQoQzFJlvprj/JFObcoaSgWZJqIHlnGFJaD3OQzjUxEjVs1Qx7KfBp3YF/A5GKAjbT74Os/cM65CU25uYh53O/BiQnPPQbIZLwg0OWqBt1+P/tLPhJprrtQiVZNw0wKZ+uRKEZUQsGzdORKPi6SOR6b40ebF5SekCze/+SMS3IqScbXgi8IOdZDGRqT52T7uxg7MK9+2ydJ5tJlMG0/yykOPAFTTYZlvSe3uHzYeXuVQvK3Rd644aOn8235viRhmt/lz7DEeInW9HN0XykQLTR7weyeaSucXeM+RzgGALJG6ZMvJPM4vrPTDVbI9uE1YwBa3bCDQ/LbCOltoqF+ne+pQ/hciTaGSq1DzM7/f3172+sD3J44DdEImUg8nzYYdaTPAN5nKkP8oMjaHNTZuQoHCsQWfJMxLycASSTkck1vdJsLihAKGfx9BzgJKcAopMFq4LkA//ApcmWZO+waZyOyN7ndLAQZ+XuRoQykLifIebIP8khvjbKNa/DivSiZubWdPm3JRctjdPGJrhgHJUTnQz3ynmmteVkJmr5qhxf1Umdc94IvM37ezuGQfLeqcFrry842T4DiUDW83AK32/cRj5ikKKv06jQs5DihDV1J24fuvC+X0PM1p+qk2c5S8noPfrvLZqMSW2IK717fS/9A4kQ74ZIwL82JLM2wOc+F3ED2KTJsbFuRtbRiT3NpAjEXZrkw73/Q71fK04oiXUsrmxR9k47IJM1JaZ50nSI/H1fv/8x0myhWqBy/NAOZG/rW7hvzvuEFI+fIl7BLne3Hw1+vW5qGnl9BqK5RAmlvV9D3vU15l6u5Ww8jtegTOJrkWNQCWUtU82cbbl4Qw4JDK9fD8mTTDMSqL351zeTX9Si3LQPIud8R393iU7EVmpdjMg4X0NaYD2UOfcJXRjuQ0yit0Iq1PM8Ebf3W6ZufuajiLS3q47Ru5X4V829MOgEKGnhSM29EjZLcRfHOMhjn3RftKfNXUV6T4fX7q0bh3Z8QQN52AtRKprJ3aHQ5Vem7d9VOWShDIsja2a+ao6ZedRlM3PGoPFDDbHBOyEnOhmuw0WIvJ3dEIb76HMFFJKaksn/cAshx6BOymGRWp2VI3WpkYlvKUgo52YeojhzwJQfZbv9pN+lEaIKEhH7vnn/3yEVky8FPgbcnWkfaQnlTQVbK2YrvT1vZeVFaZaO9znAuUgu0IZ63yzPFFEN8rNQ9Ih6+FmCfPp5yqkAZoSilCA2KkuV1Kc5C/EqiJ9q1AahDNf7pTlzgPV1XGws0vKIb4g+7a4b3Ha67xSt7g7P40NIS1yf02i7GOc4RLHI60SUmmKcRoTzR0huZDMFIrzXG3QNrHmU0jGIhBLdedsWg2HyexCRl4rI1BuZfz+GJMHfrV+fYsqvck6b8nGkD9IKI2+fgFgp3KG789syLbfSBp6S1xt7nSJkeXMloy41rIwJJOq8J9Lr+5s6thfpAjzDLLS+o27dQPs2xNfSyeTTZe+7ERuwPFKUdiB72/y1QwvK3RdkIo2X6vxXzan2nqC9au9BlrujFjdsZRxRD6KT05B8xjRnrGO9R69ukPoT5sWngK/k3MvhOm+GFOj4nDo+G5h+HS0TythE4CJzM4dJ5jaNAhSxKtmEqYKf9yJ5aRvr12vM39ugDUIZ/vaXldydrue6FDgfeI1OkNU63Xgi8/Cdwcqdf+bmLDLhHDdEJH3Po6x/bRJjo7MGkkN5AWIP9SaTZ1Tx8SssdS9H2oUucrm74fx1YYHNbpgY99PNTyubwtj8bjMDatvJ57emEDHWDfXvCyoh7VgcBRL1IkTunizQu3t+j6LtIcd4eYupJZ0caQ+ik4cjbYaLpFB8voCFE0iaVhGSHyrLI99kjsXm+ckWOt6VcazQr0/QQaecnTITc/h6YwGrkjQToUyQsPwhJoS/g3n45rZBzMKicDJwGlKdex2SzLwEKQBpVIUedoa7I73KQayDQKKyke44G030iUYoNjcyuuPp8necIZggfqCfA05C7KIuy5iCO+ovLjHwaqZaVHoVbmPZ+zOmUCpqElWaiXTY+XqTuaKI3B038Qq8VBeAitlAJUrgDiggez9LicotLUSls3J3lFPdvUDny7SL91U4h7U00FDtYS/vx/XoxhwTrvMpBV5X0fXiYnMPNnvtA7oJf3WOhVCi98nzgF/6/DCyayo6Z71ISV4v/3aSUZwLE8ok08M7atDDu8jkvqGZuLbj6S0LJ42VT7uYzZSccD7SM/nTTXJPbHTyI3Wk/ll6XleYCT9qEH2YpxNxNGSLbit+lVFJN2QlU/CyvS62ZyFdJWou49IoZxLgdcC3e7wQD6PsfRcS/TugoKH8kRoJSlqQu2cCLy4od/+wwTN4KfCpHOIbZO9DEYeKIs9HeM1cisndwdJoYZeJSLgOxyGWOL1AIGHvR9wmKiU/O2G89kcKtJIOrIIa3W/nIEU3ccHuPL/0jflIE8p1de5gGCSjwEQnTMvFbIX3jQVyDINX4zML5v9sQufyaoJ0ovgffWCTJv2qE6SY5wWIRI6p2r4TiXouQfJYmj2c2w2hLNhKoUmUka7Tks6harrLnKxRpdUKVNYzRhJ38GZdCrwc+JKTya5Uez9H56kisnd4NvZnSiqPc8httoNP0mXZ28rdqxQoEAmkt1fFZXHGPq6bx0SmqUK32iyeknN9rHfseQWvZbhuf0ZaYcYFLIQORtoHey7l6G+e+3W0TChBIosbZghi6GRzW8GilWewsj/WucDzEdn7+UjbuGqmGrwTg+EYseNYWKBtVYxUg//NdAI6Qv//HUgRyW1I/krcpGPONkNUFbkMqWRvdtyCFDPdr589NQtAxcg0SUkLSwUJ3R+MFO1M9CCJftCJZM1YEP1dCc/3uhBdGWXZ+1Lj9ZhX7T0LOCgTRc+7Ri/LybNOjOdkveKbovme4XV7IOk1RfLzWqnujoGHkerutIcyadqjI+liW9ewLmyj5L2oVVAr3rHhWp9NcTXjZDxCOQ4b534dbRHKrZEcwiSTd3KfyTUs4kE5PbMzX66L4orM729QgkFzrA/sK4x8Wq2zQw0TzC26kPxVX7sX4mv5GJKLeRfSpWJpk8+4mfmM0YAvsjcjhVaNjm30mKfHlkgE9mBESvmBXvtKycbkE3o/HIjkVtYYv64PiSmcqCgZ+m/EK/GPeg97TlRx2fvOFqq9U1PtnRao5p2FuEdEOW0MMXJ32iTfs1m1d5DYp1HM5NzK3fsUrO7+GZJs30sz86jHR7c+Qwq8WeewvEhwIIZRG00MLgNuzVkjw/U7RoNBiXfPcQyC5A1T+ZPZCu9blRTGBQjlhpnvX4fkJf4CqXrczbzHOkiXm3Zz9kL0dCYS8ifTuSRLUsJu8mElTNebnEqU4FyNyPur1HmIrSn7+kNU6Z1XCVnTcVyE+NLdqAvOGcDRSjBfiVTol7kATeh1eq0unLURl2xsFXxiNj8rkGjkHsB/IWkXsUcmuyZ7h6j7AYiiUkQefh4ikTd6bbietyuprVd5a4nvVSXK3uGzF5G7rZl5hKeatNOFaF2dD/Oik9YqKGphc5iaDea5Be6TUGh2UpvepQ5HVzrl7NggV+SfLXiitdJScU0lle0Qs0ldeKcjXmrv1MV5JtJN5IvAc82DGGUkgocRuXuBLizH6/st0H/X+7xhkZjGlG/lMEzItvq6yM4+yNIhyvs40pVoL6QDTlSiLUfYpHx6AKK+ZcltibFesG0ZI0Mig3/iGbrJejkidVfcBqTjau+isveaSIQ8T/YOfbHTnJQagEt0c1ZpkstdhPiG1z2b5l157N8uamb+L6SDT+oR8LbmqtcgDUCKGIp/vs02muGafoP8SHI4rxNbOC+Ho2sPSS3TBSZusYd3M0J5kxK+X2rU63EzobfqRRkm9CW6EOysO7ijDclEd48nIZXYZ5tOFVGmivI24H36s08juZ+r6+vTJpEIGK6e3u2QIut3FRmD+E8gEcW4REKZIJ1BXtrnxPIyZLbYEPJKpi3jk0iqxdkaTdoOSSu4jpVTCjwXqn3Z+3amvG47lb0j46d6SEG5Oy8/Miloch5k7+k0rywPz8/GFDcz74fc3cscym7kT9pI4OtoHgkMVd/3IOlYURvEPbzHAkS9aPYeNnL6Ki/OcQzCrmt2nahbnIlQ5pmsWkIZJs4zdTI+EJGZr82Qv1a8KEPkZiZS4POgEscn9P/2QKToKxH59oUasTixzt+YVFJ5PiLxPgOxsvkrYieSNwlsx/hVH6c6Zl9GIpZlyrJh59+vYqdUIzcP6STezvEAUzm4f0DaqH0BqQY9BMlV3RXJv/oJ0pbPEkmPSvZe9j4Q8UisF9Wxr3lGAbn7Zr3uUU7hTqgELyp7H9nkdeEzvxCxIposIHfP75Pc3avcyUoXPl8g30eTn6sYrtN5xos07WDMvlAgHahebqfDq7x7XuVdNYUma2RaLsZIccrtBSborAdleN8PIhVodidtJ8KN29i13auEpmIm0T2USIbXHY700gUpdPgm0l86NnLtCj3ersTzFfra92uUc6JOpDIq2Pt7lHMAY6RH+r+byTIqIY93L8RE9e4eelOGc1+MFDQ81IERcsiPzLOdqmYiwY5yZe8f63M8rYDJ+dpIfuT8OhX1aaa6O89B4hKdT/JsnsK9faH+7TzZe0/EYu3OOs9FVu6OcuTuR5jyLOzlvRc6b0Q98qGcKNkEumg1dTtWQeTkYV6LpCi8oAmxDJvSeUhE+yK3Gxvp9MSBRTUjd9fMghcpeXuwoAflqkjY3X74OUz17K63+964Df+vu/Qct0MSnhOm2iFehfTBfcR8tg8hMuOaiOQeJuXdkFzKnyBS7mlIhPNaJMI5u4l10GZKZp8as24vIUpzAyLV7lJCMU1Y3GcgOWN398HsPAUepcU2UwV6F0cZcpL4JN8z2Xu/HNPpcE2OVHKXNiCcefZCYVN1YcH88aLdfbKy99mZ58Ju0vcpaGb+c50De9VVJfzd8zW4MNGj+z/W55kSPmcYq4OQTnJJTjFOFemKc3cJ4xyu8dlKKIvgVCWUrniMTvvdB4ETkPzsXikLYQ7cGFFtWyKUjQpybjVmy7UcQrmOTsD1Ju16sgeZNo1FHuxEJ8/v6jlXkVzKkB+0JdJa8efmZ2shraxs9foMJZJXI9HMdwNf0cVoL/0cSYPCHJTAboDkYY5b+8CwG75eCWVaolnwLnqt+oEJymsH6QUP/a3EvUgJZRHZ+wVI7vTCTEetQCLWarJpCnPEDYgZdZF8uazs/bwmJMXK3mdn5snwWV9klJrqgFV3h/F/TD9vvxZlSjQyL2Kc/0WTO11G0OdnuhZv0URuD+vjvoj12FXejnFkCOUS4PI+ncPcdsKo22UmsPDQ3FAgxzH83zMRmamWMZitJ5umJpE4bqG6NxDURUo+PqoT+bn6HusA3zJy9aaI9+TbdcEI0de9kcjpYbr47Ks79731vaKcPM4JhqvSuxvtoB7twntuXtIi0O+iAQd9l72XF6z2XgdxhLCtAluRu9GI1GQLkfpWTc730kiBJRPDIndjyNW0HpoxRyXmTu6K5O0nBayCfolY5U3qPVjr4Jg0aTSfKBB8SUyU0jFaG+VVM+4r3T4m9OvqrT7oM5DIXrs9vIO8t3kLO7LYEIi1dbJrpTfs7kokUcK4AIlcrtCBn6s7ujlIbujqmc+3lXlgj9BjEWJgnJezECb1bXTnOK4WDd2oJJzTR0LpGA1CGemz/wfdKBaVvX9kIgKBaD6/ZLm7XrV3Edl7BhKJPCdDKDfWTXARufsXSKSwH1GrtN0k/wGJEr3VFCHGOWvaukhHtmpJ81gIYszKqIrN7sdDkUYlN/chfchB19JHaj1URNvK868iCd9Z+56Ksf0pUuEdJorrjQ9b0Yl1whQBpS3IkzXTxu8Q4FOIpcME8DbgDUie3736+WznkSWGiYed5awMYczDtoxvGJ4GubGdYlUnlI4SNjqTTCkPRWTvg5G+8otNnt8huhnNk7uvQ/KuW7GHSYwX6ZU50S8re59jfjdBcisHVe4elfSJjSlmaRYZtW+7PqpHocvSm5Cq74oTSgc9lCK2Y8pUOs5Uvt5e0NNtLtIu7vA2yMAqGg14uM0E/NN0V/h6PeeDkKrvrZQQvxORwZ+tk3cVyUe4RheDYzPek3FBeXZeSUnfw1r8sF0Xqs98sXOUKXt/MieiE5nUm/2RvOooI3fnPQfzTTHGZBuE5UIllHmy9946z95jflZU7n6M/sndw0woJ3VdWSWHtNezdyk7klS073yIUh6LpIQtGMM8f0cfCeXOmahQIFb3GJKXNinGWUvJ5BptdDoJJuM/YsqGptYC8ZiJWBX9Xb8/TQ90lzYBfBvJkXo/8G86MTyM2HFsy5T/YdQi6dlMJ5qlY/TAhslqeyXUZbf6WuGPpKMk2fsWnZf2znEiCK9/iRLKFUjR3QE5G8wQ+ZnfZlQ929s7T/ZeBZG9v6jfb4LkVhaVux/1Io2WK1zXAl7doll43GeLl3C/rKFr28fdQsjRy13Yrg0Kcm4paAkTIVLlDP26SgvHakh0cEabD/wzkdzJBxDz4QnzmuWGoFyORChnID3Lp+nPN22jk0FkcmXmjllkLURVTuvS4vTEMHluOQY+v/eigpW5kW42Zxmj8NWamJmHn/8NUTna7YZiZe9WTM4jVpa7vXd3dzbOxyLq2bC1MwxK4+t0TfZ2jI6e3XjbNiCU/2iBLGUru/N262mmA0utzYc+0V3kyUinkxVIAvVcxObhcqT7zQ/1b5yvk0Qgmv/ZQZJ0lcbFTKO2Ww/VZSuAY5AWX0lBCYgW8jLvd+nbQXmy94+M2XjeJmkD3Zympp1r3v06v8NWd7EhfEWKGPdBrNZCf/GicvcvXO5uOVgR8hDTIdzghnt6LqL8eTtGB72SvNdtMDH9k9YrkNI6ps6NJnw7wSUdELtDEYnqfiS5/gTgjYhnFyZaGbpivEb/9iFIzmfSxsMWogujEKGMmrRIS821RcfuC22kNhTFzf5IOkqUvW8G/oRIw3myd6xzwpVIPiU5cncNsQvqpBtKmAcvQ1JnVmkie9eQaNNzlSgXre7+JeKi4XJ3a0Vdh2nAoIhKlw7I3N2oQv18v/aOXhHKGQ1u0kUt3NSzMz/7MnBGndyNQFL+F6meC5GDNTp4+BMkp+97ZiINZPJ6pDhnmrEIelw/88dLmAxWZXSqtht9Pw14DvAWJIeLEtotNorA/M2rvB1dqPbeq6Ah9f66aZrehEiEn/8Z8emNOiSUQfa+inyvQ5T0xqzsdDGIvbuHPbp96pAXE4a1cSfEvP9y31Q4ekEon8wQo9Q4pBd5UJYCZ+p7hD6qPwRubPI7X0A8KMPr/9oBkYiVICZmMn4CeAfSw3snROaeD/yf/s5sxBi9Uz/FRQwvccyO4TQdxzUR+W8eUi2/f6Z3edmLU5CUHjfeom5z4ShT9v54znMeCOX2SPFes8hfVu7utOAhW+2dd44HIT68ReTux5GuYS53t9ZmcT/dhOSR+7CxfrLHpDJ0e4sLzvmnKqH0jbqj64TyDsQCJslI1f8OnJWJLNa7WRcjYfVWmpmfnrMItDsxh8l5BlKFvRpiD3SNmTB2Rir3OiFHcUaiTQe0kfyWiEde3mtDpHqWHtOo7zVa6aIN0W9xac5R/n11EyJ771lAvpxAcrKbkbUQ+by4pM1PK9XeYTM8u6Dc/Sskt9yfqdZwSgFP4jDGn0T8QSd6NMbBzmgX4JIctShEKZ8P7Ab8xe8FR7cJ5S+VUKZ1emafgkjXE6aApplBcNaLi4KvL3MHnSCS1aTu0DdBIpZLgWXAV5GoZa3NZOvwAC9gKrI6qBG1GTy9T3urvagDUa90ORfoG16Q4+hSccLFSijTFp7vZiTiD0pUo5IIZZC9fwccWKC7T5F2uF7d3d69Mg+poE9zrkGswZQzgQf7cL73IGkSRfKDqxr0OdYvs6PbD9F5xnoizRS8fBbpOLMi5wGzfUcnC0yy2dfXumCZsBMSibxHz/spRCragdb67jayDLkQ6Q9eGXApIWnhSM2CWmWqB28vokiXtWm/4nDkRf8uaeGZjwpIiBeW3H60aG9vChDE1KT9DIrcHZv5pJ9HVGDdeLOJNkY5a8B8JZMTPexRHvJnI+DsApuFsD4dpcGVpAtzeqWP19Sr1xmsCOW1Gh16jRLHCXOTJsDnkb7VpykpG3STVNuWbEsllr9CpO5jClSgFyFAS5BWj8NgaB4P+IJfBd6HRI/dgNfRjWrvmxC5b4+CVbuNiFoVcYy4pGRlIrzPT2he7V10wxvk7ocHROJcaoIHgzpHBl/jVxaw2Qnk85yCihxdyoe/GLgLsZJqRBStMf4bkNqCstsxPjbg19fRQ0IZ6012AJJ3OJnZzdUQP659kDZU15hdcjLgpHJrPY5m5Ur0qAMZeALxvbzD81E6QrjPfgxcYHLTHI5uVXvv0cEGMMjQVwO3mTmmzEh9MDk/sIOc5UGq7g4E51m6dvSrr3QgiD/XzUX22oW8xBMRx5FmbRZDqtRVuhbGfVgDwuZmKeKo8tGcFK5AgE8APoGkgpURDAn31hsQy764h9c3PDN/QtSt2Is5B4NQgrTlOkx3tXMypLJikoB/B3wIqZpMBjyiFJsJYLaRKeIO/OImgI8haQJOJjsnk3fpJO69Zh29qPb+qJEAozajQj/MbFrLTtW5UAllO8+Dlbt/OgByd5hrn6tHv3FiHUIZ0mxmAicVNDKPmIpO9ovIhL/5NeCdev6N7utAep8BHA/8T0lrd/hb/czN/KYTysGL5FWQzjjPA241N1tqiGcgkB9BKnJ3MbmX8RC00aq0eZ41U5TyXj2cTHZOJv+lm5gFAx7tdoyG7H0jInu3s3kJEaGnkIh6Nwrxsibn1TbOMzSX+A0id8cDslFLMjnzvT6Wma+N1od/R6zymuUYhrXyHkRu7mfOdziX+3WTk3cu4b5/I1M+q2VFr2t9uKZP6deFPsUNZhQvkMp9dDdfzdyksWmXuA8S8n9nphUhQ9INpugiEhL5H0FanX3MySSdyDSTxqrqQODvfZTBHIxdb+Z2rX7C668C7uxSNCQQmXvI7+1dtLp7UDb6g1yUEwIGbylAvsP1OA/xnhyEgswIqXNICuR9JkjTjyNKbsfoRTmOpxVsBFK5AGlJ+DbdBdjctlD9W0MsaT6BmIUPS7Sy1ahGFemD+2ydpKtOJtsmkmE8L9MNybVOzh19qPaudbAIXdDlQrdstXc7cvdCBkPuHqaNxkFI8WaeVVBFieR5A2IXF6KMfwKuKBgxTRE7QFeFHF2vALZ5hp9F+sVeY+SXJPMgTgL76s793WYXVGV4vc8m9XOs0M90EJKE70UjrRcw1QyRvB94HVJ9/4CTSUcfNog3IN6xrUiVlkhc2mUiYU3Ol7YYAUuM3L1gCOzMBql72KkF7JrCXHYJUjw1KMpKWMM/1wKBfjbSTjfxCJ+j25YyqSGFf0XaUH08Uw1HnWjlx5Dcyt1N/mU8ZItOYqyUnoNEYOlTJd8wEshJM/FW9LgL+IBGAL5kbJt8PB30UfZOWyR5VwD3djn538rev2uDvHrv7tbvh10p1kM9rGWfH7CxDfPtpSbwkZTcq9zh6NijMOQPrgDeg9gKXW8KdOpFK/dG8n/ej7TvG5Zo5aQxjT1LP8fv60Rme0HMBu2wxue1TAJ2zVQWVkxOy0KNshyLdOr5MFMt4JISIifd+JyjSvR9nOrL3lELhv8gcncvUnpiQwyLNiYIn2cRUz2baz24t5IhO+q1D36z2eA2+r0V+vo/IGocA7QhDhH0ZcC55twafZYQHDkY2LaJ3VA6pNe0rCYfg9R0JB2W5ijVgrufCpIruScSiXxLpmLXRiunIdZCL9bX/d4Qz9oALriB9N6pk8ulGf86emzjFCH2RAxRQdNjwC064f5WJ9376vSUrZV0PtNKisKE3582ghGdMsepYsZp2GXvf+jGeKcWCN4yxHS8F5tLW+092eJccAXwUI/m2tAdZtoQBU6q5vvlSIHKsQXmXBudTAfQLq9m2te+H7EQKvJMvwP4jwbzw3QTZBlETDP3YdH5sOhnWaVH92Te+MbmWvRzHYlb9aEsWu28BOkJejmSs7GFmWBjE62sIWa2vwX+G7EaesqQznRAHsIgy34LkQAeLpn8tIqFGslbPgBV86nZnS9DcsgWIxXvDyhhvA2xmboTyduqF2kpeywn9W9P66CbSLZv86IRlOBrOk6rlDBOIbLx4JBHKUN05uv6vK/Iec5q+v+/0ns+7hGhjBDZ+wIkRz2vbWQgnt/swcYoXP8Feo4rBtzhw17HhZmN5OF6XZvNt0EKf4ipqPEgBkbCOZ4DvDznM6XGcH6OsW6zuNPYC8UDqipOmHUnb15ahuS+FlkPHu3Bc75UzyfPpio0POjXvLu8wLhNsc80TVtlqyFytyZwOvDaTLQyS9gA/oZ0l7miYLQy/P9BSMVimf1HUzPBPKwLy7cGJIo6HclHTQdILg0S94qC90a3W5HFugOPSv6si0dM+u7GOCW6qRyFcVq1wOcIeeBP9Unyj3U+SApex6U9PLcJPYbhXkhNpLnWxj0Q6fw3OQSqRKqfKynY8315g7l9OoNfAxGuy4qCz9L0Fu6Xp3rwbE9vYd5d1scxntEtQkkd4nUYcCZTjedtqNaStxT4NPBBJNrVLFrZLUJpSe6PEYn7rhJz+xiDnNushJr62DkcjjGAd/RyOLpAKLPRytnAp5BeodSJViaGiFyPyOa/bBIVLJtQWmK7CHgXkg/DgOXDRENgsTGq45SO6ALo41TO2KR+jkM1XxUZn2hE7/2ohM8UDek17fa4DNp1Gqj7qRNCWS9aeRRwBlMtrLLRLEs0z0ISiJ+oEyEsk1Da3/0N0nrqBvMzN3d1OBwOh8PhoDu2QbRYYVZBOjzsDpxv5NHJTBFQII4nI6bpLzTSd6VLdkDLkKjk85RMVntsD+BwOBwOh8PhhJJiknJo3XgccDRSZZrNlbREc2vEHuOLwNrmPaKSrDeqwB8Rc/ZP1jFndzgcDofD4XAMCKGkTrTyB0i08tuGJNaLVibASUg/0iNMVXGlw6hkinT42VdJZa9Nyh0Oh8PhcDicUNJ5tPJB4FXAMTSOVoaI4abARcDXgHXb8L+yrROvQzr7vAexRfA+3A6Hw+FwOBwMXpV3Ky7rNWA9xDboFTzdwoeM5dB9wOuBxxFz9KRAm8hQ7HOmEsklA2ak7nA4HA6Hw+GEknIqwV+uxHJ9E4VsVAn+N6RFWpTTnzdGOra8GeniM6itHh0Oh8PhcDicUJYUrVxfSeXLaRytzOtBbInnV5C+pI+5SbnD4XA4HA7H6BJKGkQrPwVsYAp64gYekmQ6s1SAe4G3MNVj1aOSDofD4XA4HAx/UQ4tVIJ/F2lQ/y39PmvpEzf53e/o7843VeROJh0Oh8PhcDgY/QglDaKVLwM+w1SXnWxP8BCVfAh4u5JQj0o6HA6Hw+FwjDmhzOZWzkEk8ON4etENwMWIxH2350o6HA6Hw+FwMLaSNzlddo4HjgRuNz6VC4ATgZcYMul2QA6Hw+FwOBx4hDIvWnmufj0euMUQYO9243A4HA6HwzEg+H+BtHC2cwS42AAAAABJRU5ErkJggg==">
   <h1>My Compass</h1>
   <p id="heroSub">See how far your retirement savings can take you.</p>
+  <button type="button" class="hero-so" id="soTop" hidden>↺ Start over</button>
 </div></header>
 
 <div class="wrap">
 
 <!-- STEP 1 -->
 <section class="screen on" id="s0">
-  <div class="prog"><i class="on"></i><i></i><i></i><i></i></div>
-  <div class="eyebrow">Step 1 of 4</div>
+  <div class="prog"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="eyebrow">Step 1 of 5</div>
   <h2 class="t">Your timeline</h2>
   <p class="lead">Let's start with where you are today.</p>
   <div class="card">
@@ -266,69 +275,96 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
 
 <!-- STEP 2 -->
 <section class="screen" id="s1">
-  <div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-  <div class="eyebrow">Step 2 of 4</div>
-  <h2 class="t">What do you have now?</h2>
+  <div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="eyebrow">Step 2 of 5</div>
+  <h2 class="t">What do I have today?</h2>
   <p class="lead">Rough estimates are fine.</p>
   <div class="card">
-    <div class="f" id="f_dep"><label for="dep">How much is placed in deposits and allotted for emergency?</label><div class="fi"><span class="pre">₱</span><input id="dep" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Savings, payroll and time deposit accounts.</div></div>
-    <div class="f" id="f_inv"><label for="inv">How much do you have in investments now?</label><div class="fi"><span class="pre">₱</span><input id="inv" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">e.g. UITFs, bonds, equities, mutual funds, insurance cash value, retirement funds.</div></div>
+    <div class="sec-l">What do I own?</div>
+    <div class="f" id="f_cash"><label for="cash">Cash</label><div class="fi"><span class="pre">₱</span><input id="cash" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Savings, payroll and checking accounts you use day to day.</div></div>
+    <div class="f" id="f_ef"><label for="ef">Emergency fund</label><div class="fi"><span class="pre">₱</span><input id="ef" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Money set aside for emergencies, such as a separate savings or time deposit account.</div></div>
+    <div class="f" id="f_inv"><label for="inv">Other investments: UITFs, mutual funds, stocks</label><div class="fi"><span class="pre">₱</span><input id="inv" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Include bonds and insurance cash value.</div></div>
     <div class="f" id="f_invR" style="display:none"><label for="invR">Estimated return on your investments, per year</label><div class="fi"><input id="invR" class="pr" type="text" inputmode="decimal" value="4"><span class="suf">%</span></div><div class="err">Please enter a return of 0% to 30%.</div></div>
-    <div class="f" id="f_prop"><label for="prop">Estimated value of your home, car and other property</label><div class="fi"><span class="pre">₱</span><input id="prop" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">What they would sell for today. Enter 0 if none.</div></div>
+    <div class="f" id="f_prop"><label for="prop">Home, car and others</label><div class="fi"><span class="pre">₱</span><input id="prop" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Include these whether fully paid or not. Enter what they would sell for today.</div></div>
+    <div class="tot"><span>Total assets</span><b id="totA">₱0</b></div>
   </div>
+  <div class="card">
+    <div class="sec-l">What do I owe? (outstanding balances)</div>
+    <div class="q" style="margin-bottom:6px">Credit cards and personal loans</div>
+    <div class="loan3"><div class="f" id="f_ccBal"><label for="ccBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="ccBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_ccPay"><label for="ccPay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="ccPay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_ccY"><label for="ccY" style="font-size:.76rem">Years left</label><div class="fi"><input id="ccY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
+    <div class="hint" style="margin:0 0 14px">Include salary loans and your usual credit card payment. Enter 0 if none.</div>
+    <div class="q" style="margin-bottom:6px">Car loans</div>
+    <div class="loan3"><div class="f" id="f_carBal"><label for="carBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="carBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_carPay"><label for="carPay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="carPay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_carY"><label for="carY" style="font-size:.76rem">Years left</label><div class="fi"><input id="carY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
+    <div class="hint" style="margin:0 0 14px">Enter 0 if none.</div>
+    <div class="q" style="margin-bottom:6px">Housing loans</div>
+    <div class="loan3"><div class="f" id="f_homeBal"><label for="homeBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="homeBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_homePay"><label for="homePay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="homePay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_homeY"><label for="homeY" style="font-size:.76rem">Years left</label><div class="fi"><input id="homeY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
+    <div class="hint" style="margin:0 0 14px">Enter 0 if none.</div>
+    <div class="q" style="margin-bottom:6px">Other loans</div>
+    <div class="loan3"><div class="f" id="f_olBal"><label for="olBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="olBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_olPay"><label for="olPay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="olPay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_olY"><label for="olY" style="font-size:.76rem">Years left</label><div class="fi"><input id="olY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
+    <div class="hint" style="margin:0 0 14px">e.g. SSS, Pag-IBIG or other loans you pay monthly. Enter 0 if none.</div>
+    <div class="hint" id="amYHint" style="margin:-4px 0 12px"></div>
+    <div class="tot"><span>Total liabilities</span><b id="totL">₱0</b></div>
+  </div>
+  <div class="ncf" id="nwBox"><small>How much is my wealth? (Net worth)</small><b id="nwV">₱0</b><span>Total assets less total liabilities.</span></div>
   <div class="nav"><button class="btn q" data-back>← Back</button><button class="btn main" data-next>Continue →</button></div>
 </section>
 
 <!-- STEP 3 -->
 <section class="screen" id="s2">
-  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-  <div class="eyebrow">Step 3 of 4</div>
-  <h2 class="t">Your monthly cash flow</h2>
+  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <div class="eyebrow">Step 3 of 5</div>
+  <h2 class="t">What happens every month?</h2>
   <p class="lead">What comes in and goes out each month.</p>
   <div class="card">
-    <div class="sec-l">Income</div>
+    <div class="sec-l">How much do I earn?</div>
+    <div class="f" id="f_gsal"><label for="gsal">Basic gross monthly salary</label><div class="fi"><span class="pre">₱</span><input id="gsal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Before tax and deductions. Used to compute your BPI group life insurance.</div><div class="err">Please enter your basic monthly salary.</div></div>
     <div class="f" id="f_sal"><label for="sal">Monthly salary (take-home)</label><div class="fi"><span class="pre">₱</span><input id="sal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">What reaches your account after tax, SSS, PhilHealth, Pag-IBIG and other deductions.</div><div class="err">Please enter your monthly salary.</div></div>
-    <div class="f" id="f_othInc"><label for="othInc">Other monthly income</label><div class="fi"><span class="pre">₱</span><input id="othInc" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">e.g. rental, business or side income. Enter 0 if none.</div></div>
+    <div class="f" id="f_othInc"><label for="othInc">Other income: interest, dividends, rent</label><div class="fi"><span class="pre">₱</span><input id="othInc" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Enter 0 if none.</div></div>
+    <div class="tot"><span>Total income</span><b id="totI">₱0</b></div>
   </div>
   <div class="card">
-    <div class="sec-l">Expenses</div>
-    <div class="f" id="f_needs"><label for="needs">Needs, every month</label><div class="fi"><span class="pre">₱</span><input id="needs" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Food, utilities, transport, rent, schooling, household.</div><div class="err">Please enter your monthly spending.</div></div>
-    <div class="f" id="f_wants"><label for="wants">Wants, every month</label><div class="fi"><span class="pre">₱</span><input id="wants" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Dining out, shopping, travel, subscriptions, hobbies. Leave out loan payments; those go in the next box.</div></div>
-  </div>
-  <div class="card">
-    <div class="sec-l">Your loans</div>
-    <div class="q" style="margin-bottom:6px">Home loans</div>
-    <div class="loan3"><div class="f" id="f_homeBal"><label for="homeBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="homeBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_homePay"><label for="homePay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="homePay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_homeY"><label for="homeY" style="font-size:.76rem">Years left</label><div class="fi"><input id="homeY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="hint" style="margin:0 0 16px">Enter 0 if none.</div>
-    <div class="q" style="margin-bottom:6px">Car loans</div>
-    <div class="loan3"><div class="f" id="f_carBal"><label for="carBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="carBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_carPay"><label for="carPay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="carPay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_carY"><label for="carY" style="font-size:.76rem">Years left</label><div class="fi"><input id="carY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="hint" style="margin:0 0 16px">Enter 0 if none.</div>
-    <div class="q" style="margin-bottom:6px">Credit card and personal loans</div>
-    <div class="loan3"><div class="f" id="f_ccBal"><label for="ccBal" style="font-size:.76rem">Balance</label><div class="fi"><span class="pre">₱</span><input id="ccBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_ccPay"><label for="ccPay" style="font-size:.76rem">Monthly payment</label><div class="fi"><span class="pre">₱</span><input id="ccPay" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="err">Enter years left.</div></div><div class="f" id="f_ccY"><label for="ccY" style="font-size:.76rem">Years left</label><div class="fi"><input id="ccY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="hint" style="margin:0 0 16px">Include salary loans and your usual credit card payment. Enter 0 if none.</div>
-    <div class="hint" id="amYHint" style="margin:-8px 0 14px"></div>
-    <div class="ncf" id="ncf"><small>Your net cash flow every month</small><b id="ncfV">₱0</b><span id="ncfS">Enter your income and expenses to see your monthly surplus.</span></div>
+    <div class="sec-l">How much do I spend?</div>
+    <div class="f" id="f_needs"><label for="needs">Essential living expenses</label><div class="fi"><span class="pre">₱</span><input id="needs" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Food, utilities, transport, rent, schooling, household.</div><div class="err">Please enter your monthly spending.</div></div>
+    <div class="f" id="f_wants"><label for="wants">Other: leisure, insurance, subscriptions, non-essentials</label><div class="fi"><span class="pre">₱</span><input id="wants" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Leisure such as dining out, travel and hobbies, plus insurance premiums, subscriptions and shopping.</div></div>
+    <div class="ro"><span>Loan payments<small>From your loans in Step 2</small></span><b id="amV">₱0</b></div>
+    <div class="tot"><span>Total expenses</span><b id="totE">₱0</b></div>
+    <div class="ncf" id="ncf" style="margin-top:12px"><small>Monthly surplus / (deficit)</small><b id="ncfV">₱0</b><span id="ncfS">Enter your income and expenses to see your monthly surplus.</span></div>
   </div>
   <div class="card" id="invCard">
     <div class="f"><span class="q">Do you invest regularly?</span><div class="seg" id="invSeg"><button type="button" data-v="Yes">Yes</button><button type="button" data-v="No" class="on">No</button></div></div>
     <div id="invF" style="display:none">
-      <div class="f" id="f_pct"><label for="pct">How much of your cash flow would you like to invest?</label><div class="fi"><input id="pct" class="pr" type="text" inputmode="numeric" value="50"><span class="suf">%</span></div><div class="err">Please enter 0% to 100%.</div><div class="chip" id="invChip"></div></div>
+      <div class="f" id="f_pct"><label for="pct">What share of your monthly surplus do you put into investments?</label><div class="fi"><input id="pct" class="pr" type="text" inputmode="numeric" value="50"><span class="suf">%</span></div><div class="err">Please enter 0% to 100%.</div><div class="chip" id="invChip"></div></div>
       <div class="f" id="f_regR"><label for="regR">Estimated return on your regular investing, per year</label><div class="fi"><input id="regR" class="pr" type="text" inputmode="decimal" value="4"><span class="suf">%</span></div><div class="err">Please enter a return of 0% to 30%.</div></div>
     </div>
     <div class="hint" id="spentNote">Whatever you don't invest is kept in your deposits.</div>
-  </div>
-  <div class="card">
-    <h3>Life insurance</h3>
-    <div class="chip" id="glChip" style="margin:0 0 14px"></div>
-    <div class="f" id="f_life"><label for="life">Other life insurance coverage</label><div class="fi"><span class="pre">₱</span><input id="life" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Add up any policies apart from group life. Enter 0 if none.</div></div>
   </div>
   <div class="nav"><button class="btn q" data-back>← Back</button><button class="btn main" data-next>Continue →</button></div>
 </section>
 
 <!-- STEP 4 -->
 <section class="screen" id="s3">
-  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-  <div class="eyebrow">Step 4 of 4</div>
+  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="eyebrow">Step 4 of 5</div>
+  <h2 class="t">Protecting your dependents</h2>
+  <p class="lead">If something happens to you, how much would your family need?</p>
+  <div class="card">
+    <div class="f" id="f_depAmt"><label for="depAmt" id="depLab">How much of your income now goes to supporting your dependents, per month?</label><div class="seg" id="depSeg" style="margin-bottom:8px"><button type="button" data-v="m" class="on">Monthly</button><button type="button" data-v="y">Annual</button></div><div class="fi"><span class="pre">₱</span><input id="depAmt" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">In today's pesos. We increase it by 3.75% a year for inflation. Enter 0 if no one relies on your income.</div></div>
+    <div class="f" id="f_depYrs"><label for="depYrs">How many more years do you expect them to rely on your income?</label><div class="fi"><input id="depYrs" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Please enter the number of years.</div></div>
+  </div>
+  <div class="card">
+    <h3>Your life insurance</h3>
+    <div class="chip" id="glChip" style="margin:0 0 14px"></div>
+    <div class="f" id="f_life"><label for="life">Other life insurance coverage</label><div class="fi"><span class="pre">₱</span><input id="life" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Add up any policies apart from BPI group life. Enter 0 if none.</div></div>
+    <div class="f" id="f_lifeTo" style="display:none"><label for="lifeTo">Covered until age</label><div class="fi"><input id="lifeTo" class="pr" type="text" inputmode="numeric" value="65"><span class="suf">yrs old</span></div><div class="hint">When your other policies end. Many term policies end at 60 or 65.</div><div class="err">Please enter an age later than your current age.</div></div>
+    <div class="chip" id="covChip" style="margin-top:12px"></div>
+  </div>
+  <div class="nav"><button class="btn q" data-back>← Back</button><button class="btn main" data-next>Continue →</button></div>
+</section>
+
+<!-- STEP 5 -->
+<section class="screen" id="s4">
+  <div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="eyebrow">Step 5 of 5</div>
   <h2 class="t">Your retirement</h2>
   <p class="lead">Your cash flow once you stop working.</p>
   <div class="card">
@@ -342,7 +378,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
 </section>
 
 <!-- RETIREMENT LIFE -->
-<section class="screen" id="s4">
+<section class="screen" id="s5">
   <div class="eyebrow">Your results</div>
   <h2 class="t" style="margin-bottom:12px">Retirement Life</h2>
   <div class="opt">
@@ -352,97 +388,85 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
     <div class="stats" id="o1s"></div>
     <div class="adj" style="margin:12px 0 0"><div class="f" style="margin:0"><label for="e1" style="font-size:.84rem">Adjust your desired monthly expense here</label><div class="fi"><span class="pre">₱</span><input id="e1" class="pl money exp-edit" type="text" inputmode="decimal"></div><div class="hint">In today's prices.</div><button type="button" class="link exp-reset" style="display:none;min-height:36px">Reset to original</button></div></div>
   </div>
-  <button class="link" data-goto="3">← Back to my answers</button>
+  <button class="link" data-goto="4">← Back to my answers</button>
   <div class="nav" style="position:static"><button class="btn main" id="toRatios">Proceed →</button></div>
 </section>
 
 <!-- RATIOS -->
-<section class="screen" id="s5">
+<section class="screen" id="s6">
   <div class="eyebrow">Your results</div>
   <h2 class="t">Your Financial Health Check</h2>
   <p class="lead" style="margin-bottom:10px">A snapshot of today, based on your answers.</p>
   <div class="sum" id="ratSum"></div>
   <div id="rats"></div>
-  <button class="link" data-goto="4">← Back to Retirement Life</button>
+  <button class="link" data-goto="5">← Back to Retirement Life</button>
   <div class="nav"><button class="btn main" id="toDash">Proceed →</button></div>
 </section>
 
 <!-- DASHBOARD -->
-<section class="screen" id="s6">
+<section class="screen" id="s7">
   <div class="eyebrow">Your results</div>
   <h2 class="t">Your money at a glance</h2>
   <p class="lead">Tap any amount to adjust it.</p>
   <div class="dash">
       <div class="dc g d-in"><div class="dc-h"><span>Income</span><b id="tInc"></b></div>
         <div class="rw" id="rw_sal"><button type="button" class="rw-t" aria-expanded="false"><span>Salary</span><b id="v_sal"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_sal" aria-label="Monthly salary"></div>
-        <div class="rw" id="rw_othInc"><button type="button" class="rw-t" aria-expanded="false"><span>Other sources</span><b id="v_othInc"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_othInc" aria-label="Other sources of income"></div>
+        <div class="rw" id="rw_othInc"><button type="button" class="rw-t" aria-expanded="false"><span>Other income</span><b id="v_othInc"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_othInc" aria-label="Other income"></div>
       </div>
       <div class="dc r d-ex"><div class="dc-h"><span>Expense</span><b id="tExp"></b></div>
-        <div class="rw" id="rw_needs"><button type="button" class="rw-t" aria-expanded="false"><span>Needs</span><b id="v_needs"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_needs" aria-label="Needs"></div>
-        <div class="rw" id="rw_wants"><button type="button" class="rw-t" aria-expanded="false"><span>Wants</span><b id="v_wants"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_wants" aria-label="Wants"></div>
-        <div class="rw"><div class="rw-t"><span>Debt payments</span><b id="v_am"></b></div></div>
+        <div class="rw" id="rw_needs"><button type="button" class="rw-t" aria-expanded="false"><span>Essential living</span><b id="v_needs"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_needs" aria-label="Essential living expenses"></div>
+        <div class="rw" id="rw_wants"><button type="button" class="rw-t" aria-expanded="false"><span>Other expenses</span><b id="v_wants"></b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><input type="range" id="ds_wants" aria-label="Other expenses"></div>
+        <div class="rw"><div class="rw-t"><span>Loan payments</span><b id="v_am"></b></div></div>
         <span class="chip2" id="c_dti"></span>
       </div>
       <div class="dncf" id="dNcf">
         <div class="dncf-t"><span>Net cash flow</span><b id="v_ncf"></b></div>
         <div class="dncf-f" id="f_ncf"></div>
         <span class="chip2" id="c_sav"></span>
+        <div class="dpct" id="dPct"><div class="adj-top"><span>Invest part of it</span><b id="v_pct"></b></div><input type="range" id="dx_pct" min="0" max="100" step="5" class="gr" aria-label="Share of net cash flow invested"><div class="dncf-f" id="r_pct"></div></div>
       </div>
       <div class="dc g d-as"><div class="dc-h"><span>Assets</span><b id="tAst"></b></div>
-        <div class="rw"><div class="rw-t"><span>Savings &amp; emergency fund</span><b id="v_sv"></b></div></div>
+        <div class="rw"><div class="rw-t"><span>Savings</span><b id="v_sv"></b></div></div>
+        <div class="rw"><div class="rw-t"><span>Emergency fund</span><b id="v_ef"></b></div></div>
         <div class="rw"><div class="rw-t"><span>Investments</span><b id="v_inv"></b></div></div>
         <div class="rw"><div class="rw-t"><span>Hard assets</span><b id="v_prop"></b></div></div>
         <span class="chip2" id="c_ef"></span>
-        <p class="dc-n">Savings &amp; emergency fund are shown 1 year from now.</p>
+        <p class="dc-n">Savings and investments are shown 1 year from now.</p>
       </div>
       <div class="dc r d-li"><div class="dc-h"><span>Liabilities</span><b id="tLia"></b></div>
-        <div class="rw"><div class="rw-t"><span>Credit card and personal<small id="s_cc"></small></span><b id="v_cc"></b></div></div>
-        <div class="rw"><div class="rw-t"><span>Car<small id="s_car"></small></span><b id="v_car"></b></div></div>
-        <div class="rw"><div class="rw-t"><span>Home<small id="s_home"></small></span><b id="v_home"></b></div></div>
+        <div class="rw" id="lr_cc"><div class="rw-t"><span>Credit card and personal<small id="s_cc"></small></span><b id="v_cc"></b></div></div>
+        <div class="rw" id="lr_car"><div class="rw-t"><span>Car<small id="s_car"></small></span><b id="v_car"></b></div></div>
+        <div class="rw" id="lr_home"><div class="rw-t"><span>Housing<small id="s_home"></small></span><b id="v_home"></b></div></div>
+        <div class="rw" id="lr_ol"><div class="rw-t"><span>Other loans<small id="s_ol"></small></span><b id="v_ol"></b></div></div>
+        <p class="dc-n" id="noLoans" style="display:none">No outstanding loans.</p>
         <span class="chip2" id="c_dta"></span>
       </div>
-      <div class="xfs">
-        <div class="xf" id="xfMove">
-          <div class="xf-h"><span class="xf-c">Savings</span><svg class="xf-a" viewBox="0 0 60 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8h50" stroke="#E07B1F" stroke-width="2.5" stroke-linecap="round"/><path d="M47 3l7 5-7 5" fill="none" stroke="#E07B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="xf-c">Investments</span></div>
-          <div class="xf-t"><span>Move to investments</span><b id="v_move"></b></div>
-          <input type="range" id="dx_move" min="0" value="0" aria-label="Amount to move from savings to investments">
-          <div class="xf-r" id="r_move"></div>
-        </div>
-        <div class="xf" id="xfPay">
-          <div class="xf-h"><span class="xf-c">Savings</span><svg class="xf-a" viewBox="0 0 60 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8h50" stroke="#E07B1F" stroke-width="2.5" stroke-linecap="round"/><path d="M47 3l7 5-7 5" fill="none" stroke="#E07B1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="xf-c">Loan</span></div>
-          <div class="xf-t"><span>Pay off a loan with your savings</span></div>
-          <div class="pob">
-            <button type="button" class="pbtn" id="pb_cc" aria-pressed="false"><span>Pay off credit card and personal loans</span><b id="pa_cc"></b></button>
-            <button type="button" class="pbtn" id="pb_car" aria-pressed="false"><span>Pay off car loans</span><b id="pa_car"></b></button>
-            <button type="button" class="pbtn" id="pb_home" aria-pressed="false"><span>Pay off home loans</span><b id="pa_home"></b></button>
-          </div>
-          <div class="xf-r" id="r_pay"></div>
-        </div>
-      </div>
   </div>
+  <div class="ready" id="ready"></div>
   <button class="btn q" id="dReset" style="width:100%">Reset to my answers</button>
-  <button class="link" data-goto="5">← Back to your Financial Health Check</button>
+  <button class="link" data-goto="6">← Back to your Financial Health Check</button>
   <div class="nav" style="position:static"><button class="btn main" id="toPlan">Proceed →</button></div>
 </section>
 
 <!-- PLAN -->
-<section class="screen" id="s7">
+<section class="screen" id="s8">
   <div class="eyebrow">Your options</div>
   <h2 class="t" style="margin-bottom:12px">Close the gap</h2>
   <div class="tabs" role="tablist"><button class="on" data-tab="0" role="tab">Adjust your Lifestyle</button><button data-tab="1" role="tab">Desired Lifestyle</button></div>
   <div class="tab-p on" id="t0">
     <div class="opt g">
       <div class="tag">Option 3 · Adjust your Lifestyle</div>
-      <h3 id="aT"></h3><p id="aD"></p><div class="stats" id="aS"></div>
+      <h3 id="aT"></h3><p id="aD"></p><div class="chip" id="aNote" style="display:none"></div><div class="stats" id="aS"></div>
       <div class="adj"><div class="adj-top"><span>Adjust your monthly spending target, in today's prices</span><div style="text-align:right"><b id="spV"></b><div class="sub" id="spF"></div></div></div><input type="range" id="sp" min="0" step="1000" aria-label="Monthly spending target"><div class="adj-res" id="spR"></div></div>
     </div>
   </div>
   <div class="tab-p" id="t1">
     <div class="opt g">
       <div class="tag">Option 2 · Desired Lifestyle (With Additional investment)</div>
-      <h3 id="mT"></h3><p id="mD"></p><div class="stats" id="mS"></div>
-      <div class="adj" id="fB"><div class="adj-top"><span>Assumed return on what you invest to close the gap</span><b id="fV"></b></div><input type="range" id="fR" min="0" max="15" step="0.25" aria-label="Assumed return"><div class="adj-res" id="fRes"></div></div>
+      <div class="dsum" id="dLine"></div><h3 id="mT"></h3><p id="mD"></p><div class="stats" id="mS"></div>
+      <div class="adj" id="fB"><div class="adj-h">Choose your expected return</div><div class="adj-top"><span>Assumed return on what you invest to close the gap</span><b id="fV"></b></div><input type="range" id="fR" min="0" max="15" step="0.25" aria-label="Assumed return"><div class="adj-res" id="fRes"></div></div>
       <div class="adj">
+        <div class="adj-h">Adjust your target budget upon retirement</div>
         <div class="two">
           <div class="f"><label for="e2" style="font-size:.84rem">Monthly expense, in today's prices</label><div class="fi"><span class="pre">₱</span><input id="e2" class="pl money exp-edit" type="text" inputmode="decimal"></div></div>
           <div class="f"><label for="e2p" style="font-size:.84rem">Retirement period</label><div class="fi"><input id="e2p" class="pr" type="text" inputmode="numeric"><span class="suf">yrs</span></div></div>
@@ -451,6 +475,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
         <button type="button" class="link exp-reset" style="display:none;min-height:36px">Reset to original</button>
       </div>
       <div class="adj" id="saBox">
+        <div class="adj-h">Set aside a different amount</div>
         <div class="f" style="margin:0"><label for="sa" style="font-size:.9rem">Would a different amount suit you better?</label><div class="hint" style="margin:0 0 8px"><span id="saNcf"></span>Tell us what feels comfortable to set aside each month, and we'll show you the lifestyle it can support.</div><div class="fi"><span class="pre">₱</span><input id="sa" class="pl money" type="text" inputmode="decimal" placeholder="0" aria-label="Amount you can set aside each month"></div></div>
         <button type="button" class="link" id="saUse" style="min-height:36px"></button>
         <div class="adj-res" id="saR" style="display:none"></div>
@@ -472,12 +497,12 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
     </div>
   </div>
 
-  <button class="link" data-goto="6">← Back to your dashboard</button>
+  <button class="link" data-goto="7">← Back to your dashboard</button>
   <div class="nav" style="position:static"><button class="btn main" id="toPf">Proceed →</button></div>
 </section>
 
 <!-- PORTFOLIO -->
-<section class="screen" id="s8">
+<section class="screen" id="s9">
   <div class="tabs" id="pfTabs" role="tablist" style="position:static"><button data-pf="50" role="tab" class="on">For 50 years old</button><button data-pf="60" role="tab">For 60 years old</button></div>
   <div class="card">
     <div class="f" style="margin:0"><label for="pfAmt">How much would you like to invest?</label><div class="fi"><span class="pre">₱</span><input id="pfAmt" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">We'll show how much goes into each fund.</div></div>
@@ -485,7 +510,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
   <div class="card" id="pfCard"><div id="pf"></div></div>
   <div class="end">
     <button class="btn main" id="dl">Download results &amp; inputs (PDF)</button>
-    <button class="btn q" data-goto="7">← Back to your options</button>
+    <button class="btn q" data-goto="8">← Back to your options</button>
     <button class="btn q" id="restart">Start over</button>
   </div>
 </section>
@@ -507,7 +532,8 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
      inflation 3.75% p.a.
 
    MONTHLY CASH FLOW
-     net income      = monthly salary (take-home) + other monthly income
+     net income      = monthly salary (take-home) + other monthly income (investment income is NOT included)
+     deposits        = cash + emergency fund
      monthly expense = needs + wants + amortization (obligations)
      net cash flow   = net income − monthly expense
 
@@ -527,12 +553,13 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
      sustainable     = nest egg / (pvGA(1, inf, r, n) × (1+r)) + other income×12
 
    FINANCIAL RATIOS
-     Savings rate         amount invested monthly ÷ monthly net income            > 20%
-     Debt-to-assets       (home/car + card/personal balances) ÷ (deposits + investments + property)  < 35%
+     Savings rate         amount set aside monthly (saved + invested) ÷ net income > 20%
+     Debt-to-assets       all loan balances ÷ (cash + emergency fund + investments + property)  < 35%
      Debt-to-income       amortization×12 ÷ net income×12                          < 35%
      Emergency fund       deposits ÷ monthly expense                               6 months
-     Consumer debt        car + card/personal balances ÷ (salary + other income)×12  < 10%
-     Coverage             (group life + other life) ÷ salary×12                  10×
+     Consumer debt        car + card/personal + other loan balances ÷ (salary + other income)×12  < 10%
+     Ideal coverage       (group life 48× basic salary + other life) ÷ ideal coverage ≥ 100%
+                          ideal = support×12 × Σ 1.0375^t over the years dependents rely on you
 
    DASHBOARD (changes are written back into the answers)
      investment income is NOT counted in net cash flow; it stays invested for retirement
@@ -571,28 +598,54 @@ document.querySelectorAll('.fi input').forEach(el=>{
 function seg(id,cb){$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{
   $(id).querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));cb(b.dataset.v);sync();});}
 let invests='No',expMode='computed';
-seg('invSeg',v=>invests=v);seg('expSeg',v=>expMode=v);
+let depMode='m';seg('invSeg',v=>invests=v);seg('depSeg',v=>{depMode=v;$('depLab').textContent='How much of your income now goes to supporting your dependents, per '+(v==='m'?'month?':'year?');});seg('expSeg',v=>expMode=v);
 
-const GL_CAP=1e7,groupLife=()=>Math.min(num('sal')*24,GL_CAP);
-const LK=['cc','car','home'],amt=()=>LK.reduce((s,k)=>s+num(k+'Pay'),0),living=()=>num('needs')+num('wants'),netInc=()=>num('sal')+num('othInc');
+const GL_CAP=1e7,glEmp=(g=num('gsal'))=>g*48,glRet=(g=num('gsal'))=>Math.min(g*24,GL_CAP);
+const LK=['cc','ol','car','home'],amt=()=>LK.reduce((s,k)=>s+num(k+'Pay'),0),living=()=>num('needs')+num('wants'),netInc=()=>num('sal')+num('othInc');
+const depM=()=>num('depAmt')/(depMode==='y'?12:1),depT=()=>num('cash')+num('ef'),invT=()=>num('inv');
+/* Ideal insurance coverage: today's monthly support × 12, rising with inflation each year, added up over the years dependents rely on you. */
+/* Coverage by stage: checked at each point where coverage changes (retirement, end of group life, end of other policies),
+   while dependents still rely on you. Need at age t = remaining support from t, at t's prices, rising with inflation. */
+function coverStages(gsal,life,lifeTo,amt,yrs){
+  const H=horizon(),a=H.a,Rt=H.r,n=Math.max(0,Math.round(yrs)),endDep=a+n,gEnd=Rt>=70?Rt:Math.min(Rt+10,70),lt=Math.round(lifeTo)||65;
+  if(!(amt>0)||n<1)return[];
+  const pts={};const add=(x,l)=>{if(x>=a&&x<endDep)(pts[x]=pts[x]||[]).push(l);};
+  add(a,'While employed (now)');add(Rt,`Once retired at ${Rt}`);if(gEnd>Rt)add(gEnd,`After BPI group life ends at ${gEnd}`);if(life>0)add(lt,`After your other policies end at ${lt}`);
+  return Object.keys(pts).map(Number).sort((x,y)=>x-y).map(x=>{const m=endDep-x,need=amt*12*Math.pow(1+INF,x-a)*(Math.pow(1+INF,m)-1)/INF,
+    gl=x<Rt?gsal*48:(x<gEnd?Math.min(gsal*24,GL_CAP):0),ol=life>0&&x<lt?life:0,cover=gl+ol;
+    return{age:x,label:pts[x].join(' · '),need,cover,gl,ol,pct:need>0?cover/need*100:Infinity,ok:cover>=need};});}
+function stageLine(s){return `${s.ok?'✓':'!'} <b>${s.label}:</b> ${fP(s.cover)} vs ${fP(s.need)} needed`+(s.ok?'':`, short <b>${fP(s.need-s.cover)}</b>`);}
+function extraCover(st){const g=Math.max(0,...st.map(s=>s.need-s.cover));return{g,until:horizon().a+Math.round(num('depYrs'))};}
+function extraLine(st){const e=extraCover(st);return e.g>0?`<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--gold-bdr);color:var(--g800)">Additional insurance coverage needed: <b>${fP(e.g)}</b>, lasting until age ${e.until}, to cover every stage.</div>`:'';}
+function idealCover(amt,yrs){const s=amt,n=Math.max(0,Math.round(yrs));return{s,n,v:n>0?s*12*(Math.pow(1+INF,n)-1)/INF:0};}
 function horizon(){const a=Math.round(num('ageNow')),r=Math.round(num('age'));return{a,r,x:Math.max(0,r-a)};}
+function glRetText(){const H=horizon(),end=Math.min(H.r+10,70);
+  if(H.r>=70)return 'Once retired: no extended group life (coverage runs only up to age 70).';
+  return `Once retired: <b>${fP(glRet())}</b> (24 × basic monthly salary, up to ₱10M). Covered within 10 years from the date of retirement or up to age 70, whichever comes first (normal retirees, age 60).`;}
 function sync(){
   const H=horizon(),inc=netInc(),liv=living(),am=amt(),net=inc-liv-am,ns=(inc>0||liv>0||am>0)&&net<=0;
-  $('f_invR').style.display=num('inv')>0?'':'none';
+  $('f_invR').style.display=invT()>0?'':'none';
   const lateY=Math.max(...LK.map(k=>num(k+'Pay')>0?Math.round(num(k+'Y')):0));
   $('amYHint').textContent=(H.x>0&&lateY>H.x)?`A loan runs past your retirement age of ${H.r}. Only the ${H.x} years before retirement are counted, so plan how the remaining payments will be settled.`:'';
   $('amYHint').style.display=$('amYHint').textContent?'':'none';
-  $('glChip').innerHTML=`Group life: <b>${fP(groupLife())}</b><br>Monthly salary × 24 months${num('sal')*24>GL_CAP?', capped at ₱10M':''}`;
+  const tA=depT()+invT()+num('prop'),tL=LK.reduce((s,k)=>s+num(k+'Bal'),0),nw=tA-tL;
+  $('totA').textContent=fP(tA);$('totL').textContent=fP(tL);$('nwV').textContent=fP(nw);$('nwBox').className='ncf'+(nw>0?' pos':nw<0?' neg':'');
+  $('totI').textContent=fP(inc);$('amV').textContent=fP(am);$('totE').textContent=fP(liv+am);
   const box=$('ncf');box.className='ncf'+(net>0?' pos':net<0?' neg':'');
   $('ncfV').textContent=(net<0?'(₱'+fmt(net)+')':'₱'+fmt(net))+'/month';
   $('ncfS').textContent=!(inc||liv||am)?'Enter your income and expenses to see your monthly surplus.':
-    net>0?'Salary and other income, less needs, wants and loan payments.':net<0?'You are spending more than you earn, so there is no surplus to invest.':'No surplus to invest.';
+    net>0?'Total income less total expenses.':net<0?'You are spending more than you earn, so there is no surplus to set aside.':'No surplus to set aside.';
   $('invCard').style.display=ns?'none':'';
   $('invF').style.display=invests==='Yes'?'':'none';
-  $('spentNote').textContent=invests==='Yes'?"Whatever you don't invest is kept in your deposits.":'Your monthly surplus is kept in your deposits.';
-  $('f_regR').style.display=num('inv')>0?'none':'';
+  $('spentNote').textContent=invests==='Yes'?"Whatever you don't invest is kept in your savings.":'Your monthly surplus is kept in your savings.';
+  $('f_regR').style.display=invT()>0?'none':'';
   const pct=Math.min(100,num('pct'))/100;
-  $('invChip').innerHTML=net>0?`That is <b>${fP(net*pct)} a month</b> today. As your income grows, the amount invested grows with it.`:`Once your income covers your expenses, ${fmt(pct*100)}% of the surplus would be invested.`;
+  $('invChip').innerHTML=net>0?`That is <b>${fP(net*pct)} a month</b> invested today, and <b>${fP(net*(1-pct))}</b> kept in savings. As your income grows, both grow with it.`:`Once your income covers your expenses, ${fmt(pct*100)}% of the surplus would be invested.`;
+  const I=idealCover(depM(),num('depYrs')),cover=glEmp()+num('life');
+  $('glChip').innerHTML=`BPI group term life while employed: <b>${fP(glEmp())}</b><br>48 × basic monthly salary.<br>${glRetText()}`;
+  $('f_lifeTo').style.display=num('life')>0?'':'none';
+  {const st=coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs'));
+   $('covChip').innerHTML=st.length?st.map(s=>`<div style="color:var(--${s.ok?'green':'gold-dk'})">${stageLine(s)}</div>`).join(''):`Total coverage while employed: <b>${fP(cover)}</b>.`;}
   const comp=liv*Math.pow(1+INF,H.x);
   $('expChip').innerHTML=`Computed monthly expense at retirement: <b>${fP(comp)}</b>`;
   $('expChip').style.opacity=expMode==='own'?.55:1;
@@ -605,9 +658,9 @@ function sync(){
 function pvGA(p,g,r,n){if(n<=0||(1+r)<=0)return 0;if(Math.abs(r-g)<1e-10)return p*n/(1+r);return p*(1-Math.pow((1+g)/(1+r),n))/(r-g);}
 function fvOA(p,i,n){if(n<=0)return 0;if(Math.abs(i)<1e-12)return p*n;return p*(Math.pow(1+i,n)-1)/i;}
 function compute(rPct){
-  const H=horizon(),x=H.x,r=rPct/100,dep=num('dep'),inv=num('inv'),sal=num('sal'),inc=netInc(),liv=living(),am=amt(),
+  const H=horizon(),x=H.x,r=rPct/100,dep=depT(),inv=invT(),sal=num('sal'),inc=netInc(),liv=living(),am=amt(),
     LY=Object.fromEntries(LK.map(k=>[k,num(k+'Pay')>0?Math.round(num(k+'Y')):0])),netNow=inc-liv-am,ns=netNow<=0,want=!ns&&invests==='Yes',
-    pct=want?Math.min(100,num('pct'))/100:0,invR=num('inv')>0?num('invR')/100:0,regR=want?(num('inv')>0?invR:num('regR')/100):0;
+    pct=want?Math.min(100,num('pct'))/100:0,invR=inv>0?num('invR')/100:0,regR=want?(inv>0?invR:num('regR')/100):0;
   let fvReg=0,totReg=0,depBal=dep;
   for(let t=1;t<=x;t++){
     const net=inc*12*Math.pow(1+GS,t-1)-liv*12*Math.pow(1+INF,t-1)-LK.reduce((s,k)=>s+(t<=LY[k]?num(k+'Pay'):0),0)*12;
@@ -627,58 +680,63 @@ function compute(rPct){
 
 /* ── FINANCIAL RATIOS ──
    Works on a "state" so the dashboard can run the same ratios on its what-if figures. */
-function baseState(){const c=compute(RET);return{othInc:num('othInc'),invInc:0,sal:num('sal'),needs:num('needs'),wants:num('wants'),am:amt(),homePay:num('homePay'),carPay:num('carPay'),ccPay:num('ccPay'),
-  dep:num('dep'),inv:num('inv'),prop:num('prop'),home:num('homeBal'),car:num('carBal'),cc:num('ccBal'),life:num('life'),want:c.want,pct:c.pct};}
+function baseState(){const c=compute(RET),s={othInc:num('othInc'),invInc:0,sal:num('sal'),gsal:num('gsal'),needs:num('needs'),wants:num('wants'),am:amt(),
+  cash:num('cash'),ef:num('ef'),dep:depT(),invO:num('inv'),inv:invT(),prop:num('prop'),life:num('life'),lifeTo:num('lifeTo'),depAmt:depM(),depYrs:num('depYrs'),want:c.want,pct:c.pct};
+  LK.forEach(k=>{s[k]=num(k+'Bal');s[k+'Pay']=num(k+'Pay');});return s;}
 const pc=v=>trim(v.toFixed(1))+'%';
 function ratios(S=baseState()){
-  const net=S.sal+S.othInc+S.invInc,exp=S.needs+S.wants+S.am,ncf=net-exp,invested=S.want?Math.max(0,ncf)*S.pct:0,
-    debt=S.home+S.car+S.cc,cons=S.car+S.cc,assets=S.dep+S.inv+S.prop,gross=(S.sal+S.othInc)*12,gl=Math.min(S.sal*24,GL_CAP),cover=gl+S.life,yr=S.sal*12;
+  const net=S.sal+S.othInc,exp=S.needs+S.wants+S.am,ncf=net-exp,setA=Math.max(0,ncf),
+    debt=LK.reduce((s,k)=>s+S[k],0),cons=S.car+S.cc+S.ol,assets=S.dep+S.inv+S.prop,gross=(S.sal+S.othInc)*12,gl=glEmp(S.gsal),cover=gl+S.life,I=idealCover(S.depAmt,S.depYrs);
   const R=[
-   {g:'Financial health',n:'Savings rate',k:'Savings rate',v:net>0?invested/net*100:0,s:pc,ok:v=>v>20,b:'Above 20%',
-    def:`Amount you invest monthly (${fP(invested)}) ÷ monthly net income (${fP(net)})`,
-    H:'You invest a healthy share of what you take home. Keep it automatic.',W:'Below the 20% benchmark. Try raising your monthly investment step by step.'},
+   {g:'Financial health',n:'Savings rate',k:'Savings rate',v:net>0?setA/net*100:0,s:pc,ok:v=>v>20,b:'Above 20%',
+    def:`Amount you set aside monthly, saved and invested (${fP(setA)}) ÷ monthly net income (${fP(net)})`,
+    H:'You set aside a healthy share of what you take home. Keep it automatic.',W:'Below the 20% benchmark. Try setting aside a little more each month.'},
    {g:'Financial health',n:'Debt-to-assets ratio',k:'Debt-to-assets',v:debt>0?(assets>0?debt/assets*100:Infinity):0,s:v=>v===Infinity?'No assets':pc(v),ok:v=>v<35,b:'Below 35%',
     def:`Total debt (${fP(debt)}) ÷ total assets (${fP(assets)})`,
     H:'You own much more than you owe.',W:'Your debts are large compared with what you own. Pay balances down before taking on new ones.'},
    {g:'Financial health',n:'Debt-to-income ratio',k:'Debt-to-income',v:net>0?S.am/net*100:0,s:pc,ok:v=>v<35,b:'Below 35%',
     def:`Annual debt payments (${fP(S.am*12)}) ÷ annual net income (${fP(net*12)})`,
     H:'Your debt payments are within a comfortable range.',W:'Debt is taking a large bite of your income. Avoid new loans and pay down the costliest one first.'},
-   {g:'Financial health',n:'Emergency fund',k:'Emergency fund',v:exp>0?S.dep/exp:0,s:v=>trim(v.toFixed(1))+' months',ok:v=>v>=6,b:'6 months of expenses',
-    def:`Deposits (${fP(S.dep)}) ÷ monthly expenses (${fP(exp)})`,
-    H:'Your deposits cover at least six months of expenses.',W:`Not enough yet. Six months of expenses is ${fP(exp*6)}.`},
+   {g:'Financial health',n:'Emergency fund',k:'Emergency fund',v:exp>0?S.ef/exp:0,s:v=>trim(v.toFixed(1))+' months',ok:v=>v>=6,b:'6 months of expenses',
+    def:`Emergency fund (${fP(S.ef)}) ÷ monthly expenses (${fP(exp)})`,
+    H:'Your emergency fund covers at least six months of expenses.',W:`Not enough yet. Six months of expenses is ${fP(exp*6)}.`},
    {g:'Behavior and discipline',n:'Consumer debt ratio',k:'Consumer debt',v:gross>0?cons/gross*100:0,s:pc,ok:v=>v<10,b:'Below 10%',
-    def:`Car, credit card and personal loan balances (${fP(cons)}) ÷ annual gross income (${fP(gross)})`,
-    H:'Your consumer debt is under control.',W:'Card and personal loan balances are high for your income. Pay these down first; they usually cost the most.'},
-   {g:'Protection and risk management',n:'Coverage vs. income replacement need',k:'Coverage',v:yr>0?cover/yr:0,s:v=>trim(v.toFixed(1))+'×',ok:v=>v>=10,b:'10× annual income',
-    def:`Life insurance coverage (${fP(cover)}: BPI group life ${fP(gl)} + other life ${fP(S.life)}) ÷ annual income (${fP(yr)})`,
-    H:'Your family would have enough to replace your income for years.',W:'Your coverage would replace only part of your income. Review whether you need more.'}];
+    def:`Car, credit card, personal and other loan balances (${fP(cons)}) ÷ annual gross income (${fP(gross)})`,
+    H:'Your consumer debt is under control.',W:'These loan balances are high for your income. Pay down credit cards and personal loans first; they usually cost the most.'},
+   (()=>{const st=coverStages(S.gsal,S.life,S.lifeTo,S.depAmt,S.depYrs),w=st.length?st.reduce((m,s)=>s.pct<m.pct?s:m,st[0]):null;
+    return {g:'Protection and risk management',n:'Ideal insurance coverage',k:'Coverage',v:w?w.pct:Infinity,s:v=>v===Infinity?'No dependents':trim(Math.min(v,999).toFixed(0))+'%',ok:v=>v>=100,b:'100% of what your dependents need',
+    def:w?st.map(s=>`${s.ok?'✓':'!'} ${s.label.replace(' (now)','')}: ${fP(s.cover)} of ${fP(s.need)} needed`).join('<br>'):`You said no one relies on your income. Your coverage while employed is ${fP(cover)}.`,
+    H:'Your coverage meets what your dependents would need at every stage.',W:w?`${w.label}: ${trim(w.pct.toFixed(0))}% of what's needed. You need about ${fP(extraCover(st).g)} more coverage, lasting until age ${extraCover(st).until}.`:''};})()];
   return R.map(x=>({...x,z:x.ok(x.v)?'H':'W'}));
 }
 
 /* ── NAVIGATION ── */
-let cur=0,rView=RET;const SUB={4:'Your retirement nest egg',5:'A snapshot of your finances today',6:'How the pieces fit together',7:'Your options going forward',8:'A sample portfolio'};
-function show(i){cur=i;document.body.classList.toggle('wide',i===6);if(i===4&&has('ageNow')){renderO1();syncExp();}if(i===5)renderRatios();document.querySelectorAll('.screen').forEach((s,k)=>s.classList.toggle('on',k===i));
-  $('heroSub').textContent=SUB[i]||'See how far your retirement savings can take you.';window.scrollTo(0,0);}
+let cur=0,rView=RET;const SUB={5:'Your retirement nest egg',6:'A snapshot of your finances today',7:'How the pieces fit together',8:'Your options going forward',9:'A sample portfolio'};
+function show(i){cur=i;document.body.classList.toggle('wide',i===7);if(i===5&&has('ageNow')){renderO1();syncExp();}if(i===6)renderRatios();document.querySelectorAll('.screen').forEach((s,k)=>s.classList.toggle('on',k===i));
+  $('soTop').hidden=i===0;$('heroSub').textContent=SUB[i]||'See how far your retirement savings can take you.';window.scrollTo(0,0);}
 function bad(id,msg){const f=$(id);f.classList.add('bad');if(msg)f.querySelector('.err').textContent=msg;return f;}
 function validate(i){let first=null;const b=(id,m)=>{const f=bad(id,m);first=first||f;};
   if(i===0){const a=num('ageNow'),r=num('age');
     if(!has('ageNow')||a<1||a>100)b('f_ageNow','Please enter your age.');
     if(!has('age')||r<1||r>100)b('f_age','Please enter an age up to 100.');else if(has('ageNow')&&r<=a)b('f_age','This must be later than your current age.');}
-  if(i===1){if(num('inv')>0&&(!has('invR')||num('invR')>30))b('f_invR');}
-  if(i===2){if(num('sal')<=0)b('f_sal');if(living()<=0)b('f_needs');LK.forEach(k=>{if(num(k+'Pay')>0&&Math.round(num(k+'Y'))<1)b('f_'+k+'Y');});
+  if(i===1){if(invT()>0&&(!has('invR')||num('invR')>30))b('f_invR');LK.forEach(k=>{if(num(k+'Pay')>0&&Math.round(num(k+'Y'))<1)b('f_'+k+'Y');});}
+  if(i===2){if(num('gsal')<=0)b('f_gsal');if(num('sal')<=0)b('f_sal');if(num('needs')<=0)b('f_needs');
     const ns=netInc()-living()-amt()<=0;
-    if(!ns&&invests==='Yes'){if(!has('pct')||num('pct')>100)b('f_pct');if(!(num('inv')>0)&&(!has('regR')||num('regR')>30))b('f_regR');}}
-  if(i===3){if(expMode==='own'&&num('own')<=0)b('f_own');const p=num('per');if(p<1||p>50)b('f_per');}
+    if(!ns&&invests==='Yes'){if(!has('pct')||num('pct')>100)b('f_pct');if(!(invT()>0)&&(!has('regR')||num('regR')>30))b('f_regR');}}
+  if(i===3){if(num('depAmt')>0&&Math.round(num('depYrs'))<1)b('f_depYrs');if(num('life')>0&&Math.round(num('lifeTo'))<=horizon().a)b('f_lifeTo');}
+  if(i===4){if(expMode==='own'&&num('own')<=0)b('f_own');const p=num('per');if(p<1||p>50)b('f_per');}
   if(first){first.scrollIntoView({behavior:'smooth',block:'center'});return false;}return true;}
 document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>{if(validate(cur))show(cur+1);});
 document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>show(cur-1));
 document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>show(+b.dataset.goto));
-$('seeBtn').onclick=()=>{if(!validate(3))return;orig={mode:expMode,own:$('own').value,per:$('per').value};renderO1();syncExp();show(4);};
+let base0=null;const yrsOf=c=>c.insufficient?0:Math.min(c.fd,c.period);
+$('seeBtn').onclick=()=>{if(!validate(4))return;orig={mode:expMode,own:$('own').value,per:$('per').value};{const c=compute(RET);base0={nest:c.nest,yrs:yrsOf(c)};}renderO1();syncExp();show(5);};
 $('cCheck').onchange=e=>$('cBtn').disabled=!e.target.checked;
 $('cBtn').onclick=()=>$('curtain').classList.remove('on');
-$('restart').onclick=()=>location.reload();
+function startOver(){document.querySelectorAll('input').forEach(e=>{if(e.type==='checkbox')return;e.value=e.defaultValue;});location.reload();}
+$('restart').onclick=startOver;$('soTop').onclick=startOver;
 let pfPicked=false;
-$('toPf').onclick=()=>{if(!pfPicked)setPf(horizon().a>=55?60:50);show(8);};
+$('toPf').onclick=()=>{if(!pfPicked)setPf(horizon().a>=55?60:50);show(9);};
 $('voBtn').onclick=()=>{const o=$('voBody').style.display==='none';$('voBody').style.display=o?'':'none';$('voBtn').setAttribute('aria-expanded',o);$('voChev').style.transform=o?'rotate(180deg)':'';};
 
 /* ── PASSWORD WINDOW ── */
@@ -690,9 +748,9 @@ $('gIn').addEventListener('input',()=>$('gF').classList.remove('bad'));
 $('gForm').onsubmit=e=>{e.preventDefault();
   if(hash($('gIn').value.trim())===HASH[gateKey]){unlocked[gateKey]=true;$('gate').classList.remove('on');gateThen();}
   else{$('gF').classList.add('bad');$('gIn').select();}};
-$('toRatios').onclick=()=>gate('ratio',()=>{renderRatios();show(5);});
-$('toDash').onclick=()=>{dashInit();show(6);};
-$('toPlan').onclick=()=>gate('plan',()=>{rView=RET;$('rS').value=RET;touched=false;initPlan();syncExp();show(7);requestAnimationFrame(drawChart);});
+$('toRatios').onclick=()=>gate('ratio',()=>{renderRatios();show(6);});
+$('toDash').onclick=()=>{dashInit();show(7);};
+$('toPlan').onclick=()=>gate('plan',()=>{rView=RET;$('rS').value=RET;touched=false;initPlan();syncExp();show(8);requestAnimationFrame(drawChart);});
 
 /* ── SCREEN: RETIREMENT LIFE ── */
 function o1Text(c){const y=c.period,sp=`${fP(c.today)}/month in today's prices`;
@@ -729,42 +787,41 @@ function renderRatios(){const R=ratios(),h=R.filter(x=>x.z==='H').length,w=R.len
   $('rats').innerHTML=R.map(x=>{const head=x.g!==g?`<div class="grp">${x.g}</div>`:'';g=x.g;
     return head+`<div class="card"><div class="rat-top"><div class="rat-n">${x.n}</div><span class="pill ${x.z}">${x.z==='H'?'Healthy':'Watch'}</span></div><div class="rat-v">${x.s(x.v)}</div><div class="rat-m">${x.def}<br><b>Benchmark: ${x.b}</b></div><div class="rat-t">${x[x.z]}</div></div>`;}).join('');}
 
-/* ── SCREEN: DASHBOARD (what-if only) ──
-   Income − expense = net cash flow; 12 months of it is added to today's deposits ("in 1 year").
-   Emergency fund = deposits up to 6 months of expenses; the rest is savings.
-   Move to investments: deposits → investments; investment income = investments × yield ÷ 12.
-   Pay down debt: deposits → debt balance; both balances and the monthly debt payment fall in proportion. */
+/* ── SCREEN: DASHBOARD ──
+   "Now": income − expense = net cash flow. Of it, the invested % goes to investments and the rest to savings;
+   both are shown 1 year from now. Changes are written back into the answers, so every later screen and the PDF use them.
+   The invested share grows at the investment return; the saved share at the deposit rate (both feed Close the gap). */
 let D=null,D0=null;
-const DS=['sal','othInc','needs','wants'],LN={cc:'credit card and personal loans',car:'car loans',home:'home loans'},ON={cc:'onCC',car:'onCar',home:'onHome'};
-function dashYield(){return num('inv')>0?num('invR')/100:RET/100;}
+const DS=['sal','othInc','needs','wants'],LN={cc:'credit card and personal loans',ol:'other loans',car:'car loans',home:'housing loans'},ON={cc:'onCC',ol:'onOl',car:'onCar',home:'onHome'};
+function dashYield(){return invT()>0?num('invR')/100:RET/100;}
 function sliderMax(v){return Math.max(Math.ceil(v*2/1000)*1000,20000);}
-/* Each loan carries its own payment. Paying part of a loan lowers its balance and payment in proportion; paying it all removes both. */
+function dashBase(){const b=baseState();return{...b,move:0,onCC:false,onOl:false,onCar:false,onHome:false,pctD:b.want?b.pct:0,y:dashYield(),invR:$('invR').value,inv0:invT()};}
 function dashState(){
   const S={paid:{}};let left=D.dep,am=0,debt=0;
   LK.forEach(k=>{const pd=D[ON[k]]?Math.min(D[k],left):0;left-=pd;S.paid[k]=pd;S[k]=D[k]-pd;S[k+'Pay']=D[k]>0?D[k+'Pay']*S[k]/D[k]:D[k+'Pay'];am+=S[k+'Pay'];debt+=S[k];});
-  const p=D.dep-left,mv=Math.min(D.move,Math.max(0,left)),inv=D.inv+mv,depNow=D.dep-mv-p,inc=D.sal+D.othInc,exp=D.needs+D.wants+am,ncf=inc-exp,
-    dep1=Math.max(0,depNow+12*ncf),assets=dep1+inv+D.prop,invested=D.want?Math.max(0,ncf)*D.pct:0;
-  return Object.assign(S,{am,mv,inv,invInc:0,depNow,inc,exp,ncf,dep1,assets,debt,invested,p});}
-function dashLimits(){const S=dashState();$('dx_move').max=Math.max(0,D0.dep-S.p);}
-function dashInit(){const b=baseState();D0={...b,move:0,onCC:false,onCar:false,onHome:false,y:dashYield(),invR:$('invR').value};D={...D0};dashInit0();}
+  const p=D.dep-left,mv=Math.min(D.move,Math.max(0,left)),invNow=D.inv+mv,depNow=D.dep-mv-p,inc=D.sal+D.othInc,exp=D.needs+D.wants+am,ncf=inc-exp,
+    invM=ncf>0?ncf*D.pctD:0,savM=ncf-invM,inv=invNow+12*invM,dep1=Math.max(0,depNow+12*savM),assets=dep1+inv+D.prop,setA=Math.max(0,ncf),
+    sv1=D.cash+12*savM,ef1=Math.max(0,D.ef+Math.min(0,sv1)),cash1=Math.max(0,sv1);
+  return Object.assign(S,{am,mv,invNow,inv,invM,savM,depNow,inc,exp,ncf,dep1,assets,debt,setA,p,cash1,ef1});}
+function dashLimits(){}
+function dashInit(){D0=dashBase();D0.nest0=compute(RET).nest;D={...D0};dashInit0();}
 function dashInit0(){
   DS.forEach(k=>{const s=$('ds_'+k);s.min=0;s.step=500;s.max=sliderMax(D0[k]);s.value=D0[k];setRow(k,false);});
-  const st=D0.dep>=100000?1000:100;$('dx_move').step=st;$('dx_move').value=0;
-  $('xfMove').style.display=D0.dep>0?'':'none';$('xfPay').style.display=D0.dep>0&&D0.home+D0.car+D0.cc>0?'':'none';
-  LK.forEach(k=>$('pb_'+k).hidden=!(D0[k]>0));
+  $('dx_pct').value=Math.round(D0.pctD*100);
+  LK.forEach(k=>{$('lr_'+k).style.display=D0[k]>0?'':'none';});$('noLoans').style.display=LK.some(k=>D0[k]>0)?'none':'';
   dashLimits();renderDash();}
-LK.forEach(k=>$('pb_'+k).onclick=()=>{D[ON[k]]=!D[ON[k]];dashLimits();renderDash();});
 function setRow(k,open){const r=$('rw_'+k);r.classList.toggle('open',open);r.querySelector('.rw-t').setAttribute('aria-expanded',open);}
 DS.forEach(k=>{$('rw_'+k).querySelector('.rw-t').onclick=()=>setRow(k,!$('rw_'+k).classList.contains('open'));
   $('ds_'+k).addEventListener('input',e=>{D[k]=+e.target.value;renderDash();});});
 const snap=s=>{const mx=+s.max;let v=+s.value;if(mx-v<+s.step)v=mx;return v;};
-$('dx_move').addEventListener('input',e=>{D.move=snap(e.target);renderDash();});
+$('dx_pct').addEventListener('input',e=>{D.pctD=+e.target.value/100;renderDash();});
 function wr(id,v){$(id).value=v>0.004?Number((Math.round(v*100)/100).toFixed(2)).toLocaleString('en-PH',{maximumFractionDigits:2}):'0';}
-/* Dashboard changes are real: write them back into the answers so every later screen and the PDF use them. */
 function applyDash(){const S=dashState();
   wr('sal',D.sal);wr('othInc',D.othInc);wr('needs',D.needs);wr('wants',D.wants);
-  wr('dep',S.depNow);wr('inv',S.inv);LK.forEach(k=>{wr(k+'Bal',S[k]);wr(k+'Pay',S[k+'Pay']);});
-  $('invR').value=D0.inv>0||S.inv<=0?D0.invR:trim(D.y*100);
+  const ef=Math.min(D0.ef,S.depNow);wr('ef',ef);wr('cash',S.depNow-ef);wr('inv',D0.invO+S.mv);
+  LK.forEach(k=>{wr(k+'Bal',S[k]);wr(k+'Pay',S[k+'Pay']);});
+  $('invR').value=D0.inv0>0||S.invNow<=0?D0.invR:trim(D.y*100);
+  const want=D.pctD>0;invests=want?'Yes':'No';$('invSeg').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===invests));$('pct').value=Math.round(D.pctD*100);
   sync();renderO1();syncExp();}
 $('dReset').onclick=()=>{D={...D0};dashInit0();};
 function delta(now,was,goodUp){const d=now-was;if(Math.abs(d)<1)return '';const good=goodUp?d>0:d<0;return `<span class="${good?'up':'dn'}">${d>0?'▲':'▼'} ${fP(Math.abs(d))}</span>`;}
@@ -777,22 +834,25 @@ function renderDash(){
   set('v_needs',fP(D.needs));set('v_wants',fP(D.wants));set('v_am',fP(S.am));
   $('dNcf').className='dncf'+(S.ncf>0?' pos':S.ncf<0?' neg':'');
   set('v_ncf',fP(S.ncf)+'/mo'+delta(S.ncf,B.ncf,true));
-  set('f_ncf',S.ncf>0?`Adds <b>${fP(S.ncf*12)}</b> to your savings in 1 year.`:S.ncf<0?`Takes <b>${fP(-S.ncf*12)}</b> from your savings in 1 year.`:'Nothing is added to your savings.');
-  set('v_sv',fP(S.dep1));set('v_inv',fP(S.inv));set('v_prop',fP(D.prop));
+  set('f_ncf',S.ncf>0?`Each month you set aside <b>${fP(S.setA)}</b>: ${fP(S.invM)} invested and ${fP(S.savM)} saved. In 1 year: ${fP(S.invM*12)} to your investments and ${fP(S.savM*12)} to your savings.`:S.ncf<0?`Takes <b>${fP(-S.ncf*12)}</b> from your savings in 1 year.`:'Nothing is added to your savings.');
+  $('dPct').style.display=S.ncf>0?'':'none';
+  set('v_pct',Math.round(D.pctD*100)+'%');
+  set('r_pct',`${fP(S.invM)} a month invested · ${fP(S.savM)} a month saved`);
+  set('v_sv',fP(S.cash1));set('v_ef',fP(S.ef1));set('v_inv',fP(S.inv));set('v_prop',fP(D.prop));
   LK.forEach(k=>{set('v_'+k,fP(S[k]));set('s_'+k,S[k+'Pay']>0?fP(S[k+'Pay'])+' a month':S[k]<1&&D0[k]>0?'Paid off':'');});
   const tSav=S.inc*.2,tDti=S.inc*.35,tEf=S.exp*6,tDta=S.assets*.35;
-  chip('c_sav',S.invested>tSav,`Invest at least ${fP(tSav)} a month`,`You invest ${fP(S.invested)} a month`);
-  chip('c_dti',S.am<tDti,`Debt payments at most ${fP(tDti)}`,`Now ${fP(S.am)}`);
-  chip('c_ef',S.dep1>=tEf,`Emergency fund at least ${fP(tEf)}`,`Deposits in 1 year: ${fP(S.dep1)}`);
+  chip('c_sav',S.setA>tSav,`Set aside at least ${fP(tSav)} a month · you set aside ${fP(S.setA)}`,`You set aside ${fP(S.setA)} a month`);
+  chip('c_dti',S.am<tDti,`Loan payments at most ${fP(tDti)}`,`Now ${fP(S.am)}`);
+  chip('c_ef',S.ef1>=tEf,`Emergency fund at least ${fP(tEf)}`,`Emergency fund: ${fP(S.ef1)}`);
   chip('c_dta',S.debt<tDta||S.debt===0,`Debt at most ${fP(tDta)}`,`Now ${fP(S.debt)}`);
-  set('v_move',fP(S.mv));
-  set('r_move',S.mv>0?`About <b style="color:var(--green)">+${fP(S.mv*D.y)} a year</b>, kept invested for your retirement.`:'Grow your investments for retirement.');
-  const freed=LK.reduce((s,k)=>s+D0[k+'Pay'],0)-S.am,owe=[];
-  LK.forEach(k=>{const on=D[ON[k]],left=S[k],paid=S.paid[k];$('pb_'+k).setAttribute('aria-pressed',on);
-    set('pa_'+k,!on?fP(D0[k]):left<1?'✓ Paid':`${fP(paid)} paid`);if(on&&left>=1)owe.push(`${fP(left)} is still owed on your ${LN[k]}`);});
-  set('r_pay',(freed>0?`You free up <b style="color:var(--green)">${fP(freed)} a month</b>, which goes to your savings.`:'Credit card and personal loans usually cost the most, so pay these first.')+
-    (owe.length?` Your savings weren't enough to clear everything: ${owe.join(', and ')}.`:'')+(LK.some(k=>D[ON[k]])?' Tap again to undo.':''));
+  const H=horizon();
   applyDash();
+  const c=compute(RET),full=!c.insufficient&&c.fd>=c.period,el=$('ready');el.className='ready '+(full?'H':'W');
+  const b0=base0||{nest:D0.nest0,yrs:yrsOf(c)},d=c.nest-b0.nest,chg=Math.abs(d)>=1;
+  el.innerHTML=`<div><i>Ready at ${H.r}?</i>`+(chg?`With your adjustments, your nest egg at ${H.r} is now <b>${fP(c.nest)}</b>, <span class="${d>0?'up':'dn'}" style="display:inline">${d>0?'up':'down'} ${fP(Math.abs(d))}</span> from ${fP(b0.nest)} with no adjustments.`:`Based on your answers, your nest egg at ${H.r} is <b>${fP(c.nest)}</b>.`)+'<br>'+
+    (()=>{const yN=yrsOf(c),yB=b0.yrs,yc=yN!==yB?` <span class="${yN>yB?'up':'dn'}" style="display:inline">${yN>yB?'▲ up':'▼ down'} from ${yB} years</span>`:'';
+      return !c.fund?`Your retirement income already covers your expenses for all ${c.period} years.`:full?`It lasts all <b>${c.period}</b> of your retirement years.${yc}`:
+      `It lasts <b>${yN} of your ${c.period}</b> retirement years.${yc}`;})()+`</div>`;
 }
 
 /* ── SCREEN: PLAN ── */
@@ -802,6 +862,14 @@ let touched=false,spTouched=false;
 function initPlan(){spTouched=false;renderPlan();}
 function renderPlan(){
   const c=compute(rView),y=c.period,adj=c.sust/12,tf=Math.pow(1+INF,c.x),adjT=adj/tf,R0=horizon().r;
+  {const n0=Math.max(0,c.netNow),iv=c.want?n0*c.pct:0,sv=n0-iv;
+   const yN=yrsOf(c),yB=base0?base0.yrs:yN;
+   const chg=yN!==yB?`<div class="sub" style="color:var(--${yN>yB?'green':'ruby'});font-weight:700">${yN>yB?'▲ up':'▼ down'} from ${yB} years with no adjustments</div>`:`<div class="sub">Before adjustments: ${yB} years</div>`;
+   $('dLine').innerHTML=!c.fund?`<div class="one"><div class="lab">Your nest egg</div><div class="sub" style="font-size:.88rem">Your retirement income already covers your expenses for all ${y} years.</div></div>`:
+     `<div><div class="lab">${yN!==yB?'With your dashboard changes, it lasts':'Your nest egg lasts'}</div><div class="val ${yN>=y?'n':'y'}">${yN} of ${y} yrs</div>${chg}</div>`+
+     (c.short>0?`<div><div class="lab">To last all ${y} years, you need</div><div class="val y">${fP(c.short)}</div><div class="sub">more by age ${R0}</div></div>`:`<div><div class="lab">Shortfall</div><div class="val n">None</div><div class="sub">It already lasts all ${y} years</div></div>`);
+   const own=expMode==='own'&&Math.abs(num('own')-living())>=1;$('aNote').style.display=own?'':'none';
+   if(own)$('aNote').innerHTML=`You entered your own retirement expense of <b>${fP(num('own'))}</b> a month. Your current essential and other expenses are <b>${fP(living())}</b> a month.`;}
   /* Adjust */
   $('aT').textContent=!c.fund?'No adjustment needed. What you have is sufficient for your retirement years.':'Adjust your monthly budget so your nest egg lasts the full retirement period.';
   $('aD').innerHTML=!c.fund?`Your retirement income already covers your desired spending for the full ${y}-year period.`:
@@ -877,7 +945,7 @@ const MODELS={
   50:{t:'Sample Portfolio for 50Y',d:'Balanced model for a 50-year-old moderately aggressive investor, split evenly between equities and fixed income.',p:'Moderately Aggressive',
     a:[['wb',15],['abf',15],['alfm',20],['gbif',5],['phd',5],['gef',40]]},
   60:{t:'Sample Portfolio for 60Y',d:'Income-tilted model for a 60-year-old moderately conservative investor, with 70% in fixed income.',p:'Moderately Conservative',
-    a:[['wb',10],['alfm',60],['gbif',5],['phd',5],['gef',20]],er:'5.0%',rk:'4.8%'}};
+    a:[['wb',10],['alfm',60],['gbif',5],['phd',5],['gef',20]]}};
 let pfM=50;
 function pieSVG(M){let a=-Math.PI/2,s='<svg viewBox="-26 -26 252 252" role="img" aria-label="Recommended outlets allocation">';M.a.forEach(([k,p])=>{const c=FUNDS[k][1],b=a+p/100*2*Math.PI,x=(t,r)=>100+r*Math.cos(t),y=(t,r)=>100+r*Math.sin(t),m=(a+b)/2;
   s+=`<path d="M100 100L${x(a,100)} ${y(a,100)}A100 100 0 ${p>50?1:0} 1 ${x(b,100)} ${y(b,100)}Z" fill="${c}" stroke="#fff" stroke-width="2"/><text x="${x(m,114)}" y="${y(m,114)+4.5}" text-anchor="middle" font-size="12.5" font-weight="800" fill="#2c2a27">${p}%</text>`;a=b;});return s+'</svg>';}
@@ -885,11 +953,12 @@ function pfTable(M,amt){const show=amt>0;
   return `<div class="pf-prof"><span>Risk Profile</span><span style="text-align:right">${M.p}</span></div>`+
    M.a.map(([k,p])=>{const [n,c,t]=FUNDS[k];return `<div class="pf-r"><span>${n}</span><b style="background:${c};color:${t}">${p}%</b>${show?`<em>${fP(amt*p/100)}</em>`:''}</div>`;}).join('')+
    `<div class="pf-t"><span>TOTAL</span><span>100%${show?' · '+fP(amt):''}</span></div>`;}
+const PFG='Minimum investment for government securities is ₱500,000. Each fund needs at least ₱1,000.';
 const PFN='Illustrative model only. It is not a recommendation for your specific age, goals or risk profile. Please confirm suitability with your advisor.';
 function renderPf(){const M=MODELS[pfM],amt=num('pfAmt');
   $('pf').innerHTML=`<div class="pf-h">${M.t}</div><div class="pf-s">${M.d}</div><div class="lab" style="text-align:center">Recommended outlets</div><div class="pf-pie">${pieSVG(M)}</div>${pfTable(M,amt)}`+
-   (M.er?`<div class="pf-st"><div><div class="lab">Expected return</div><div class="val">${M.er}</div></div><div><div class="lab">Expected risk</div><div class="val">${M.rk}</div></div></div>`:'')+
-   `<div class="fine">${PFN}</div><div class="fine">${CONF}</div>`;}
+   (()=>{const mn=Math.min(...M.a.map(x=>x[1])),need=Math.ceil(1000/(mn/100)/1000)*1000;return amt>0&&amt*mn/100<1000?`<div class="warnx">Invest at least <b>${fP(need)}</b> so every fund gets the ₱1,000 minimum.</div>`:'';})()+
+   `<div class="fine">${PFG}</div><div class="fine">${PFN}</div><div class="fine">${CONF}</div>`;}
 function setPf(m){pfM=m;document.querySelectorAll('[data-pf]').forEach(x=>x.classList.toggle('on',+x.dataset.pf===m));renderPf();}
 document.querySelectorAll('[data-pf]').forEach(b=>b.onclick=()=>{pfPicked=true;setPf(+b.dataset.pf);});
 $('pfAmt').addEventListener('input',renderPf);
@@ -897,15 +966,18 @@ renderPf();
 
 /* ── DOWNLOAD ── */
 $('dl').onclick=()=>{buildReport();const t=document.title;document.title='My Compass Results';window.print();setTimeout(()=>document.title=t,1500);};
-function dashNow(){const k=D,k0=D0;const b=baseState();D0={...b,move:0,onCC:false,onCar:false,onHome:false,y:dashYield()};D={...D0};const S={...D,...dashState()};D=k;D0=k0;return S;}
+function dashNow(){const k=D,k0=D0;D0=dashBase();D={...D0};const S={...D,...dashState()};D=k;D0=k0;return S;}
 function buildReport(){
   const c0=compute(RET),c=compute(rView),R=ratios(),a=horizon(),row=(l,v)=>`<div class="rp-r"><span>${l}</span><b>${v}</b></div>`,sec=(t,b,cl='')=>`<div class="rp-s ${cl}"><h2>${t}</h2>${b}</div>`;
   c0.r0=a.r;const date=new Date().toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
   const f=c.fund&&c.short>0?fundCalc(c,+$('fR').value):null,spM=+$('sp').value,sr=spendRes(c,spM);
-  const inputs=[['Current age',a.a],['Retirement age',a.r],['Deposits',fP(c.dep)],['Investments',fP(c.inv)],...(c.inv>0?[['Estimated return on investments',trim(c.invR*100)+'% p.a.']]:[]),['Home, car and other property',fP(num('prop'))],
-    ['Monthly salary (take-home)',fP(c.sal)],['Other monthly income',fP(num('othInc'))],['Needs, monthly',fP(num('needs'))],['Wants, monthly',fP(num('wants'))],['Total monthly debt payments',fP(c.am)],
-    ['Net cash flow, monthly',fP(dashNow().ncf)],['Home loans: balance',fP(num('homeBal'))],['Home loans: monthly payment',fP(num('homePay'))+(num('homePay')>0?' for '+c.LY.home+' yrs':'')],['Car loans: balance',fP(num('carBal'))],['Car loans: monthly payment',fP(num('carPay'))+(num('carPay')>0?' for '+c.LY.car+' yrs':'')],['Credit card and personal loans: balance',fP(num('ccBal'))],['Credit card and personal loans: monthly payment',fP(num('ccPay'))+(num('ccPay')>0?' for '+c.LY.cc+' yrs':'')],['Group life (salary × 24, max ₱10M)',fP(groupLife())],['Other life insurance',fP(num('life'))],
-    ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of cash flow invested',fmt(c.pct*100)+'%'],['Return on regular investing',trim(c.regR*100)+'% p.a.']]:[]),['Monthly expense at retirement',(expMode==='own'?'Own figure, ':'Computed, ')+fP(c.monthly)],['Other income in retirement, monthly',fP(c.oth)],['Expected retirement pay',fP(c.pay)],['Years in retirement',c.period]];
+  const I=idealCover(depM(),num('depYrs')),ln={cc:'Credit cards and personal loans',car:'Car loans',home:'Housing loans',ol:'Other loans'};
+  const inputs=[['Current age',a.a],['Retirement age',a.r],['Cash',fP(num('cash'))],['Emergency fund',fP(num('ef'))],['Other investments',fP(num('inv'))],...(c.inv>0?[['Estimated return on investments',trim(c.invR*100)+'% p.a.']]:[]),['Home, car and others',fP(num('prop'))],
+    ...['cc','car','home','ol'].map(k=>[ln[k],fP(num(k+'Bal'))+(num(k+'Pay')>0?' · '+fP(num(k+'Pay'))+'/mo for '+c.LY[k]+' yrs':'')]),
+    ['Basic gross monthly salary',fP(num('gsal'))],['Monthly salary (take-home)',fP(c.sal)],['Other income',fP(num('othInc'))],['Essential living expenses',fP(num('needs'))],['Loan payments',fP(c.am)],['Other expenses',fP(num('wants'))],['Monthly surplus / (deficit)',fP(c.netNow)],
+    ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of surplus invested',fmt(c.pct*100)+'%'],['Return on regular investing',trim(c.regR*100)+'% p.a.']]:[]),
+    ['Support for dependents',I.s>0?(depMode==='y'?fP(I.s*12)+'/yr':fP(I.s)+'/mo')+' for '+I.n+' yrs':'None'],['Ideal insurance coverage',fP(I.v)],['BPI group life while employed (48× BMS)',fP(glEmp())],['BPI group life once retired (24× BMS, max ₱10M)',fP(glRet())],['Other life insurance',fP(num('life'))+(num('life')>0?' until age '+Math.round(num('lifeTo')):'')],...coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')).map(s=>['Coverage check, '+s.label,(s.ok?'✓ ':'! ')+fP(s.cover)+' vs '+fP(s.need)+' needed'+(s.ok?'':', short '+fP(s.need-s.cover))]),...(()=>{const st=coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')),e=extraCover(st);return e.g>0?[['Additional insurance coverage needed',fP(e.g)+' until age '+e.until]]:[];})(),
+    ['Monthly expense at retirement',(expMode==='own'?'Own figure, ':'Computed, ')+fP(c.monthly)],['Other income in retirement, monthly',fP(c.oth)],['Expected retirement pay',fP(c.pay)],['Years in retirement',c.period]];
   const assump=[['Deposit rate','0.05% p.a.'],['Salary increase','3.5% p.a.'],['Retirement fund return','4.25% p.a.'],['Inflation','3.75% p.a.']];
   const M=MODELS[pfM],amt=num('pfAmt');
   $('report').innerHTML=`<div class="rp-h"><img src="${document.querySelector('.logo').src}" alt="BPI Wealth"><h1>My Compass</h1><p>Results and inputs · ${date}</p></div>`+
@@ -917,13 +989,13 @@ function buildReport(){
    sec('Adjust your Lifestyle',`<div class="rp-g">${row('You entered (monthly)',fP(c.today))}${row("Sustainable monthly expense, today's prices",fP(c.sust/12/Math.pow(1+INF,c.x)))}${row('At age '+a.r,fP(c.sust/12))}</div><p class="rp-p" style="margin-top:5px">Spending target selected: ${sr.txt.replace(/<[^>]+>/g,'')}</p>`)+
    sec('Desired Lifestyle',f?`<div class="rp-g">${row('Set aside monthly, starting now',fP(f.monthly))}${row('Assumed return',trim(+$('fR').value)+'% p.a.')}${row('Total additional amount needed at age '+a.r,fP(c.short))}${row('Or one-time amount today',fP(f.lump))}${num('sa')>0?(()=>{const x=saCalc(c,num('sa'),+$('fR').value);return row('If you set aside '+fP(num('sa'))+' a month, you can live on',fP(x.today)+" (today's prices)")})():''}</div>`:'<p class="rp-p">Your nest egg already covers your desired lifestyle. No additional investment required.</p>')+
    (()=>{const S=dashNow();const tg=(ok,t)=>`${ok?'✓':'!'} ${t}`;
-     return sec('Your money at a glance',`<div class="rp-g"><div>${row('<b>Income</b>','<b>'+fP(S.inc)+'</b>')}${row('Salary (take-home)',fP(S.sal))}${row('Other sources',fP(S.othInc))}
-       ${row('<b>Expense</b>','<b>'+fP(S.exp)+'</b>')}${row('Needs',fP(S.needs))}${row('Wants',fP(S.wants))}${row('Debt payments',fP(S.am))}${row('<b>Net cash flow, monthly</b>','<b>'+fP(S.ncf)+'</b>')}</div>
-       <div>${row('<b>Assets</b>','<b>'+fP(S.assets)+'</b>')}${row('Savings & emergency fund, in 1 year',fP(S.dep1))}${row('Investments',fP(S.inv))}${row('Hard assets',fP(S.prop))}
-       ${row('<b>Liabilities</b>','<b>'+fP(S.debt)+'</b>')}${LK.map(k=>row({cc:'Credit card and personal',car:'Car',home:'Home'}[k],fP(S[k])+' · '+fP(S[k+'Pay'])+'/mo')).join('')}</div></div>
-       <div class="rp-g" style="margin-top:4px">${row('Savings ratio',tg(S.invested>S.inc*.2,'invest at least '+fP(S.inc*.2)+'/mo'))}${row('Debt to income',tg(S.am<S.inc*.35,'payments at most '+fP(S.inc*.35)+'/mo'))}${row('Emergency fund',tg(S.dep1>=S.exp*6,'at least '+fP(S.exp*6)))}${row('Debt to assets',tg(S.debt<S.assets*.35||S.debt===0,'debt at most '+fP(S.assets*.35)))}</div>`);})()+
+     return sec('Your money at a glance',`<div class="rp-g"><div>${row('<b>Income</b>','<b>'+fP(S.inc)+'</b>')}${row('Salary (take-home)',fP(S.sal))}${row('Other income',fP(S.othInc))}
+       ${row('<b>Expense</b>','<b>'+fP(S.exp)+'</b>')}${row('Essential living',fP(S.needs))}${row('Loan payments',fP(S.am))}${row('Other expenses',fP(S.wants))}${row('<b>Net cash flow, monthly</b>','<b>'+fP(S.ncf)+'</b>')}${row('Invested / saved monthly',fP(S.invM)+' / '+fP(S.savM))}</div>
+       <div>${row('<b>Assets</b>','<b>'+fP(S.assets)+'</b>')}${row('Savings, in 1 year',fP(S.cash1))}${row('Emergency fund',fP(S.ef1))}${row('Investments, in 1 year',fP(S.inv))}${row('Hard assets',fP(S.prop))}
+       ${row('<b>Liabilities</b>','<b>'+fP(S.debt)+'</b>')}${['cc','car','home','ol'].map(k=>row(ln[k],fP(S[k])+' · '+fP(S[k+'Pay'])+'/mo')).join('')}</div></div>
+       <div class="rp-g" style="margin-top:4px">${row('Savings ratio',tg(S.setA>S.inc*.2,'set aside at least '+fP(S.inc*.2)+'/mo'))}${row('Debt to income',tg(S.am<S.inc*.35,'payments at most '+fP(S.inc*.35)+'/mo'))}${row('Emergency fund',tg(S.ef1>=S.exp*6,'at least '+fP(S.exp*6)))}${row('Debt to assets',tg(S.debt<S.assets*.35||S.debt===0,'debt at most '+fP(S.assets*.35)))}</div>`);})()+
    sec('Visual Overview',`<div class="rp-ch">${balSVG(c)}</div><div class="rp-g" style="margin-top:6px">${yrsData(c).map(r=>row(r.l+', fund lasts until',`age ${a.r+r.y}`)).join('')}</div>`)+
-   sec(M.t,`<p class="rp-p"><i>${M.d}</i></p><div class="rp-pf"><div>${row('Risk Profile',M.p)}${M.a.map(([k,p])=>row(FUNDS[k][0],p+'%'+(amt>0?' · '+fP(amt*p/100):''))).join('')}${row('TOTAL','100%'+(amt>0?' · '+fP(amt):''))}${M.er?row('Expected return',M.er)+row('Expected risk',M.rk):''}</div><div>${pieSVG(M)}</div></div><p class="fine" style="margin-top:6px">${PFN}</p>`)+
+   sec(M.t,`<p class="rp-p"><i>${M.d}</i></p><div class="rp-pf"><div>${row('Risk Profile',M.p)}${M.a.map(([k,p])=>row(FUNDS[k][0],p+'%'+(amt>0?' · '+fP(amt*p/100):''))).join('')}${row('TOTAL','100%'+(amt>0?' · '+fP(amt):''))}</div><div>${pieSVG(M)}</div></div><p class="fine" style="margin-top:6px">${PFG} ${PFN}</p>`)+
    `<p class="fine">${DISC.join(' ')}</p><p class="fine">${CONF}</p>`;
 }
 sync();
