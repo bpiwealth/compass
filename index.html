@@ -296,7 +296,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
   </div>
   <div class="card">
     <div class="sec-l">What do I owe? (outstanding balances)</div>
-    <div class="f" id="f_ccBal"><label for="ccBal">Credit card</label><div class="fi"><span class="pre">₱</span><input id="ccBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Credit card balances you are paying down. Balance still owed. Enter 0 if none.</div></div>
+    <div class="f" id="f_ccBal"><label for="ccBal">Credit card (unpaid balance)</label><div class="fi"><span class="pre">₱</span><input id="ccBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Only the amount you don't pay in full each month and carry over. If you pay your full bill every month, enter 0.</div></div>
     <div class="f" id="f_plBal"><label for="plBal">Personal loans</label><div class="fi"><span class="pre">₱</span><input id="plBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Include salary loans. Balance still owed. Enter 0 if none.</div></div>
     <div class="f" id="f_carBal"><label for="carBal">Car loans</label><div class="fi"><span class="pre">₱</span><input id="carBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Balance still owed. Enter 0 if none.</div></div>
     <div class="f" id="f_homeBal"><label for="homeBal">Housing loans</label><div class="fi"><span class="pre">₱</span><input id="homeBal" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">Balance still owed. Enter 0 if none.</div></div>
@@ -323,13 +323,12 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
     <div class="sec-l" id="spendT" style="margin-bottom:12px">How much do I spend each month?</div>
         <div class="f" id="f_needsP"><label for="needsP">Essential living expenses</label><div class="fi"><input id="needsP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint">Food, bills, transport, rent, schooling</div><div class="err">Please enter this amount.</div></div>
     <div class="f" id="f_wantsP"><label for="wantsP">Other spending</label><div class="fi"><input id="wantsP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint">Leisure, insurance, subscriptions, shopping</div><div class="err">Please enter this amount.</div></div>
-    <div class="q" style="margin:4px 0 8px">Loan payments</div>
+    <div class="q" style="margin:4px 0 2px">Loan payments</div><div class="hint" style="margin:0 0 10px">For simplicity, we don't include interest rates. Payoff time is estimated as your balance ÷ monthly payment.</div>
     <div class="lp"><div class="f" id="f_ccP"><label for="ccP">Credit card</label><div class="fi"><input id="ccP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_cc" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="ccY" type="hidden"></div>
     <div class="lp"><div class="f" id="f_plP"><label for="plP">Personal loans</label><div class="fi"><input id="plP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_pl" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="plY" type="hidden"></div>
     <div class="lp"><div class="f" id="f_carP"><label for="carP">Car loans</label><div class="fi"><input id="carP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_car" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="carY" type="hidden"></div>
     <div class="lp"><div class="f" id="f_homeP"><label for="homeP">Housing loans</label><div class="fi"><input id="homeP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_home" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="homeY" type="hidden"></div>
     <div class="hint" id="amYHint" style="margin:-4px 0 12px"></div>
-    <div class="ptot" id="leftRow"><span>Left to set aside (surplus)</span><b id="leftV"></b></div>
     <input type="hidden" id="needs"><input type="hidden" id="wants"><input type="hidden" id="ccPay"><input type="hidden" id="plPay"><input type="hidden" id="carPay"><input type="hidden" id="homePay">
     <div class="tot"><span>Total expenses</span><b id="totE">₱0</b></div>
     <div class="ncf" id="ncf" style="margin-top:12px"><small>Monthly surplus / (deficit)</small><b id="ncfV">₱0</b><span id="ncfS">Enter your income and expenses to see your monthly surplus.</span></div>
@@ -352,7 +351,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
   <h2 class="t">Protecting your dependents</h2>
   <p class="lead">If something happens to you, how much would your family need?</p>
   <div class="card">
-    <div class="f" id="f_depAmt"><label for="depAmt" id="depLab">How much of your income now goes to supporting your dependents, per month?</label><div class="seg" id="depSeg" style="margin-bottom:8px"><button type="button" data-v="m" class="on">Monthly</button><button type="button" data-v="y">Annual</button></div><div class="fi"><span class="pre">₱</span><input id="depAmt" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">In today's pesos. We increase it by 3.75% a year for inflation. Enter 0 if no one relies on your income.</div></div>
+    <div class="f" id="f_depAmt"><label for="depAmt" id="depLab">How much of your income now goes to supporting your dependents, per year?</label><div class="seg" id="depSeg" style="margin-bottom:8px"><button type="button" data-v="m">Monthly</button><button type="button" data-v="y" class="on">Annual</button></div><div class="fi"><span class="pre">₱</span><input id="depAmt" class="pl money" type="text" inputmode="decimal" placeholder="0"></div><div class="hint">In today's pesos. We increase it by 3.75% a year for inflation. Enter 0 if no one relies on your income.</div></div>
     <div class="f" id="f_depYrs"><label for="depYrs">How many more years do you expect them to rely on your income?</label><div class="fi"><input id="depYrs" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Please enter the number of years.</div></div>
   </div>
   <div class="card">
@@ -603,7 +602,7 @@ document.querySelectorAll('.fi input').forEach(el=>{
 function seg(id,cb){$(id).querySelectorAll('button').forEach(b=>b.onclick=()=>{
   $(id).querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));cb(b.dataset.v);sync();});}
 let invests='No',expMode='computed';
-let depMode='m';seg('invSeg',v=>invests=v);
+let depMode='y';seg('invSeg',v=>invests=v);
 seg('depSeg',v=>{depMode=v;$('depLab').textContent='How much of your income now goes to supporting your dependents, per '+(v==='m'?'month?':'year?');});seg('expSeg',v=>expMode=v);
 
 const GL_CAP=1e7,glEmp=(g=num('gsal'))=>g*48,glRet=(g=num('gsal'))=>Math.min(g*24,GL_CAP);
@@ -631,9 +630,7 @@ function glRetText(){const H=horizon(),end=Math.min(H.r+10,70);
   if(H.r>=70)return 'Once retired: no extended group life (coverage runs only up to age 70).';
   return `Once retired: <b>${fP(glRet())}</b> (24 × basic monthly salary, up to ₱10M). Covered within 10 years from the date of retirement or up to age 70, whichever comes first (normal retirees, age 60).`;}
 function sync(){
-  {const s=num('sal');PK.forEach(k=>{const v=num(PF[k]);$(k).value=v?v.toFixed(2):'';});
-   const left=s-PK.reduce((a,k)=>a+num(PF[k]),0),lr=$('leftRow');lr.className='ptot '+(left<0?'neg':left>0?'pos':'');
-   $('leftV').textContent=(s>0||left)?fP(left)+(left<0?' (deficit)':''):'';}
+  {const s=num('sal');PK.forEach(k=>{const v=num(PF[k]);$(k).value=v?v.toFixed(2):'';});}
   LK.forEach(k=>{const e=$('bal_'+k),v=num(k+'Bal'),inp=$(k+'P'),m=loanM(k);
     if(!(v>0)){if(inp.value)inp.value='';$(k+'Pay').value='';}inp.disabled=!(v>0);$('f_'+k+'P').classList.toggle('off',!(v>0));
     $(k+'Y').value=m?(m/12).toFixed(4):'';
@@ -778,7 +775,7 @@ $('gShow').onclick=()=>{const p=$('gIn').type==='password';$('gIn').type=p?'text
 $('gCancel').onclick=()=>$('gate').classList.remove('on');
 $('gIn').addEventListener('input',()=>$('gF').classList.remove('bad'));
 $('gForm').onsubmit=e=>{e.preventDefault();
-  if(hash($('gIn').value.trim())===HASH[gateKey]){unlocked[gateKey]=true;$('gate').classList.remove('on');gateThen();}
+  if(hash($('gIn').value.trim().toLowerCase())===HASH[gateKey]){unlocked[gateKey]=true;$('gate').classList.remove('on');gateThen();}
   else{$('gF').classList.add('bad');$('gIn').select();}};
 $('toRatios').onclick=()=>gate('ratio',()=>{renderRatios();show(6);});
 $('toDash').onclick=()=>{dashInit();show(7);};
@@ -837,7 +834,7 @@ let D=null,D0=null;
 const DS=['sal','othInc','needs','wants'],LN={cc:'credit card',pl:'personal loans',car:'car loans',home:'housing loans'},ON={cc:'onCC',pl:'onPl',car:'onCar',home:'onHome'};
 function dashYield(){return invT()>0?num('invR')/100:RET/100;}
 function sliderMax(v){return Math.max(Math.ceil(v*2/1000)*1000,20000);}
-function dashBase(){const b=baseState();return{...b,move:0,onCC:false,onPl:false,onCar:false,onHome:false,pctD:b.want?b.pct:0,y:dashYield(),invR:$('invR').value,inv0:invT()};}
+function dashBase(){const b=baseState();return{...b,move:0,onCC:false,onPl:false,onCar:false,onHome:false,pctD:b.want?b.pct:0,own0:num('own'),y:dashYield(),invR:$('invR').value,inv0:invT()};}
 function dashState(){
   const S={paid:{}};let left=D.dep,am=0,debt=0;
   LK.forEach(k=>{const pd=D[ON[k]]?Math.min(D[k],left):0;left-=pd;S.paid[k]=pd;S[k]=D[k]-pd;S[k+'Pay']=D[k]>0?D[k+'Pay']*S[k]/D[k]:D[k+'Pay'];am+=S[k+'Pay'];debt+=S[k];});
@@ -858,8 +855,10 @@ DS.forEach(k=>{$('rw_'+k).querySelector('.rw-t').onclick=()=>setRow(k,!$('rw_'+k
 const snap=s=>{const mx=+s.max;let v=+s.value;if(mx-v<+s.step)v=mx;return v;};
 $('dx_pct').addEventListener('input',e=>{D.pctD=+e.target.value/100;renderDash();});
 function wr(id,v){$(id).value=v>0.004?Number((Math.round(v*100)/100).toFixed(2)).toLocaleString('en-PH',{maximumFractionDigits:2}):'0';}
+const dashCut=()=>D0&&D?(D.needs+D.wants)-(D0.needs+D0.wants):0;
 function applyDash(){const S=dashState();
   wr('sal',D.sal);wr('othInc',D.othInc);const wp=(f,v)=>{$(f).value=!(v>0)?'0':spendMode==='a'?Math.round(v).toLocaleString('en-PH'):(D.sal>0?trim((v/D.sal*100).toFixed(2)):'0');};wp('needsP',D.needs);wp('wantsP',D.wants);
+  if(expMode==='own'&&D0.own0>0){$('own').value=Math.round(Math.max(0,D0.own0+dashCut())).toLocaleString('en-PH');if(typeof orig!=='undefined'&&orig)orig.own=$('own').value;}
   const ef=Math.min(D0.ef,S.depNow);wr('ef',ef);wr('cash',S.depNow-ef);wr('inv',D0.invO+S.mv);
   LK.forEach(k=>{wr(k+'Bal',S[k]);wp(k+'P',S[k+'Pay']);});
   $('invR').value=D0.inv0>0||S.invNow<=0?D0.invR:trim(D.y*100);
@@ -907,6 +906,7 @@ document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.query
   $('t0').classList.toggle('on',b.dataset.tab==='0');$('t1').classList.toggle('on',b.dataset.tab==='1');});
 let touched=false,spTouched=false;
 function initPlan(){spTouched=false;renderPlan();}
+const expTxt=c=>expMode==='own'?`You plan to spend ${fP(c.today)} a month in retirement.`:`Your monthly expenses are ${fP(c.today)} (essential living ${fP(num('needs'))} + other expenses ${fP(num('wants'))}).`;
 function renderPlan(){
   const c=compute(rView),y=c.period,adj=c.sust/12,tf=Math.pow(1+INF,c.x),adjT=adj/tf,R0=horizon().r;
   {const n0=Math.max(0,c.netNow),iv=c.want?n0*c.pct:0,sv=n0-iv;
@@ -915,14 +915,14 @@ function renderPlan(){
    $('dLine').innerHTML=!c.fund?`<div class="one"><div class="lab">Your nest egg</div><div class="sub" style="font-size:.88rem">Your retirement income already covers your expenses for all ${y} years.</div></div>`:
      `<div><div class="lab">${yN!==yB?'With your dashboard changes, it lasts':'Your nest egg lasts'}</div><div class="val ${yN>=y?'n':'y'}">${yN} of ${y} yrs</div>${chg}</div>`+
      (c.short>0?`<div><div class="lab">To last all ${y} years, you need</div><div class="val y">${fP(c.short)}</div><div class="sub">more by age ${R0}</div></div>`:`<div><div class="lab">Shortfall</div><div class="val n">None</div><div class="sub">It already lasts all ${y} years</div></div>`);
-   const own=expMode==='own'&&Math.abs(num('own')-living())>=1;$('aNote').style.display=own?'':'none';
-   if(own)$('aNote').innerHTML=`You entered your own retirement expense of <b>${fP(num('own'))}</b> a month. Your current essential and other expenses are <b>${fP(living())}</b> a month.`;}
+   const dc=expMode==='own'&&D0&&D0.own0>0?dashCut():0,own=expMode==='own'&&(Math.abs(dc)>=1||Math.abs(num('own')-living())>=1);$('aNote').style.display=own?'':'none';
+   if(own)$('aNote').innerHTML=Math.abs(dc)>=1?`You entered <b>${fP(D0.own0)}</b> a month for retirement. With your <b>${fP(Math.abs(dc))}</b> ${dc<0?'cut':'increase'} on the dashboard, we now use <b>${fP(num('own'))}</b>.`:`You entered your own retirement expense of <b>${fP(num('own'))}</b> a month. Your current essential and other expenses are <b>${fP(living())}</b> a month.`;}
   /* Adjust */
   $('aT').textContent=!c.fund?'No adjustment needed. What you have is sufficient for your retirement years.':'Adjust your monthly budget so your nest egg lasts the full retirement period.';
   $('aD').innerHTML=!c.fund?`Your retirement income already covers your desired spending for the full ${y}-year period.`:
-    c.nest<=0?`You entered a monthly expense of ${fP(c.today)}. There is no capital to draw down, so the most you could spend is your recurring income, about <span class="hl y">${fP(adjT)}</span> a month in today's prices.`:
-    adj>=c.monthly?`You entered a monthly expense of ${fP(c.today)}. That is already within your sustainable level of <span class="hl n">${fP(adjT)}</span> a month in today's prices for all ${y} years. No reduction is needed.`:
-    `You entered a monthly expense of ${fP(c.today)}. To make your nest egg last ${y} years, reduce it to <span class="hl y">${fP(adjT)}</span> a month in today's prices.`;
+    c.nest<=0?`${expTxt(c)} There is no capital to draw down, so the most you could spend is your recurring income, about <span class="hl y">${fP(adjT)}</span> a month in today's prices.`:
+    adj>=c.monthly?`${expTxt(c)} That is already within your sustainable level of <span class="hl n">${fP(adjT)}</span> a month in today's prices for all ${y} years. No reduction is needed.`:
+    `${expTxt(c)} To make your nest egg last ${y} years, reduce it to <span class="hl y">${fP(adjT)}</span> a month in today's prices.`;
   $('aS').innerHTML=`<div><div class="lab">Sustainable Monthly Expense</div><div class="val y">${fP(adjT)}</div><div class="sub">in today's prices · ${fP(adj)} at age ${R0}</div></div><div><div class="lab">Retirement Period</div><div class="val">${y} yrs</div></div>`;
   const sp=$('sp');const mx=Math.max(Math.round(c.today*1.5/1000)*1000,Math.ceil(adjT*1.1/1000)*1000,10000);sp.max=mx;
   if(!spTouched)sp.value=Math.floor(Math.min(adjT,mx)/1000)*1000;updSp();
@@ -1029,11 +1029,11 @@ function buildReport(){
   const M=MODELS[pfM],amt=num('pfAmt');
   $('report').innerHTML=`<div class="rp-h"><img src="${document.querySelector('.logo').src}" alt="BPI Wealth"><h1>My Compass</h1><p>Results and inputs · ${date}</p></div>`+
    sec('Your inputs',`<div class="rp-g"><div>${inputs.slice(0,Math.ceil(inputs.length/2)).map(x=>row(...x)).join('')}</div><div>${inputs.slice(Math.ceil(inputs.length/2)).map(x=>row(...x)).join('')}</div></div>`)+
-   sec('Assumptions',`<div class="rp-g">${assump.map(x=>row(...x)).join('')}</div>`)+
+   
    sec('Retirement Life · Option 1, Default (No additional investment)',`<p class="rp-p">${o1Text(c0).replace(/<span[^>]*>|<\/span>/g,'')}</p>${debtNote(c0,true)?`<p class="rp-p">${debtNote(c0,true)}</p>`:''}<div class="rp-g">${row('Years nest egg lasts',yrsTxt(c0))}${row('Desired monthly spending',fP(c0.monthly))}</div>`)+
    sec('Your Financial Health Check',R.map(x=>row(`${x.n} (benchmark: ${x.b})`,`${x.s(x.v)} · ${x.z==='H'?'Healthy':'Watch'}`)).join(''))+
    (rView!==RET?`<p class="rp-p"><b>The options below use a ${trim(rView)}% p.a. retirement fund return</b>, as set on the Visual Overview slider. Option 1 above uses 4.25%.</p>`:'')+
-   sec('Adjust your Lifestyle',`<div class="rp-g">${row('You entered (monthly)',fP(c.today))}${row("Sustainable monthly expense, today's prices",fP(c.sust/12/Math.pow(1+INF,c.x)))}${row('At age '+a.r,fP(c.sust/12))}</div><p class="rp-p" style="margin-top:5px">Spending target selected: ${sr.txt.replace(/<[^>]+>/g,'')}</p>`)+
+   sec('Adjust your Lifestyle',`<div class="rp-g">${row('You entered (monthly)',fP(c.today))}${row("Sustainable monthly expense, today's prices",fP(c.sust/12/Math.pow(1+INF,c.x)))}</div><p class="rp-p" style="margin-top:5px">Spending target selected: ${sr.txt.replace(/<[^>]+>/g,'')}</p>`)+
    sec('Desired Lifestyle',f?`<div class="rp-g">${row('Set aside monthly, starting now',fP(f.monthly))}${row('Assumed return',trim(+$('fR').value)+'% p.a.')}${row('Total additional amount needed at age '+a.r,fP(c.short))}${row('Or one-time amount today',fP(f.lump))}${num('sa')>0?(()=>{const x=saCalc(c,num('sa'),+$('fR').value);return row('If you set aside '+fP(num('sa'))+' a month, you can live on',fP(x.today)+" (today's prices)")})():''}</div>`:'<p class="rp-p">Your nest egg already covers your desired lifestyle. No additional investment required.</p>')+
    (()=>{const S=dashNow();const tg=(ok,t)=>`${ok?'✓':'!'} ${t}`;
      return sec('Your money at a glance',`<div class="rp-g"><div>${row('<b>Income</b>','<b>'+fP(S.inc)+'</b>')}${row('Salary (take-home)',fP(S.sal))}${row('Other income',fP(S.othInc))}
