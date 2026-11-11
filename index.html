@@ -61,7 +61,7 @@ h2.t{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1.22;tex
 .ncf.pos b{color:var(--green)}.ncf.neg b{color:var(--ruby)}
 .ncf span{display:block;font-size:.76rem;color:var(--g600);margin-top:2px;line-height:1.4}
 .tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1.5px solid var(--g200);padding-top:10px;margin-top:4px;font-size:.88rem;font-weight:800}.tot b{font-size:1.05rem;font-variant-numeric:tabular-nums}
-.lp{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:10px}.lp .f{margin-bottom:12px}
+.lp{display:block}.lp .f{margin-bottom:12px}.lp .f.off label{color:var(--g500)}.lp .f.off .fi{background:var(--g50);opacity:.6}
 .pv{color:var(--g800);font-weight:700}.pv:empty+.sep{display:none}
 #s2 .fi input.pr{padding-right:62px}
 .ptot{display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:.88rem;font-weight:700;border-top:1px solid var(--g200)}.ptot b{font-variant-numeric:tabular-nums}.ptot.neg b{color:var(--ruby)}.ptot.pos b{color:var(--green)}.ptot.all{border-top:1.5px solid var(--g800);font-weight:800;margin-bottom:10px}
@@ -324,10 +324,10 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
         <div class="f" id="f_needsP"><label for="needsP">Essential living expenses</label><div class="fi"><input id="needsP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint">Food, bills, transport, rent, schooling</div><div class="err">Please enter this amount.</div></div>
     <div class="f" id="f_wantsP"><label for="wantsP">Other spending</label><div class="fi"><input id="wantsP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint">Leisure, insurance, subscriptions, shopping</div><div class="err">Please enter this amount.</div></div>
     <div class="q" style="margin:4px 0 8px">Loan payments</div>
-    <div class="lp"><div class="f" id="f_ccP"><label for="ccP">Credit card</label><div class="fi"><input id="ccP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_cc" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><div class="f" id="f_ccY"><label for="ccY">Years left</label><div class="fi"><input id="ccY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="lp"><div class="f" id="f_plP"><label for="plP">Personal loans</label><div class="fi"><input id="plP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_pl" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><div class="f" id="f_plY"><label for="plY">Years left</label><div class="fi"><input id="plY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="lp"><div class="f" id="f_carP"><label for="carP">Car loans</label><div class="fi"><input id="carP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_car" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><div class="f" id="f_carY"><label for="carY">Years left</label><div class="fi"><input id="carY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
-    <div class="lp"><div class="f" id="f_homeP"><label for="homeP">Housing loans</label><div class="fi"><input id="homeP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_home" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><div class="f" id="f_homeY"><label for="homeY">Years left</label><div class="fi"><input id="homeY" class="pr" type="text" inputmode="numeric" placeholder="0"><span class="suf">yrs</span></div><div class="err">Enter years left.</div></div></div>
+    <div class="lp"><div class="f" id="f_ccP"><label for="ccP">Credit card</label><div class="fi"><input id="ccP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_cc" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="ccY" type="hidden"></div>
+    <div class="lp"><div class="f" id="f_plP"><label for="plP">Personal loans</label><div class="fi"><input id="plP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_pl" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="plY" type="hidden"></div>
+    <div class="lp"><div class="f" id="f_carP"><label for="carP">Car loans</label><div class="fi"><input id="carP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_car" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="carY" type="hidden"></div>
+    <div class="lp"><div class="f" id="f_homeP"><label for="homeP">Housing loans</label><div class="fi"><input id="homeP" class="pr" type="text" inputmode="decimal" placeholder="0"><span class="suf">₱/mo</span></div><div class="hint" id="bal_home" style="display:none"></div><div class="err">Enter your monthly payment.</div></div><input id="homeY" type="hidden"></div>
     <div class="hint" id="amYHint" style="margin:-4px 0 12px"></div>
     <div class="ptot" id="leftRow"><span>Left to set aside (surplus)</span><b id="leftV"></b></div>
     <input type="hidden" id="needs"><input type="hidden" id="wants"><input type="hidden" id="ccPay"><input type="hidden" id="plPay"><input type="hidden" id="carPay"><input type="hidden" id="homePay">
@@ -581,7 +581,7 @@ const abbr=n=>n>=1e9?(n/1e9).toFixed(1)+'B':n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3
 const DISC=[
  'My Compass is provided solely for general informational and educational purposes. It does not constitute legal, tax, financial, or investment advice. You should consult a qualified financial advisor for advice tailored to your specific circumstances.',
  'Use of My Compass does not create any fiduciary or other professional relationship between you and BPI Wealth, or any of its affiliates.',
- 'Projections assume a 0.05% p.a. deposit rate, a 3.75% p.a. salary increase, a 4.25% p.a. net return on the retirement fund (the 10-year average yield of the 10-year Philippine Government Security), and 3.75% p.a. inflation (the average 20-year Philippine inflation rate). If spending is more than income, the gap is covered by savings, then investments, then a personal loan at an indicative BPI rate of 26% p.a., subject to change. Actual results will vary.',
+ 'Projections assume a 0.05% p.a. deposit rate, a 3.75% p.a. salary increase, a 4.25% p.a. net return on the retirement fund (the 10-year average yield of the 10-year Philippine Government Security), and 3.75% p.a. inflation (the average 20-year Philippine inflation rate). If spending is more than income, the gap is covered by savings, then investments, then a personal loan at an indicative BPI rate of 26% p.a., subject to change. Loan payoff time is estimated as balance ÷ monthly payment. Actual results will vary.',
  'Accordingly, all results are estimates only and are indicative in nature. They do not substitute for the advice or review of a licensed professional, and should not be relied upon as a guarantee of future results.'];
 const CONF='This document contains confidential data. It is intended solely for the use of authorized recipient(s). Unauthorized use, disclosure, or reproduction is strictly prohibited.';
 $('cBody').innerHTML=DISC.map(p=>`<p>${p}</p>`).join('');
@@ -634,13 +634,15 @@ function sync(){
   {const s=num('sal');PK.forEach(k=>{const v=num(PF[k]);$(k).value=v?v.toFixed(2):'';});
    const left=s-PK.reduce((a,k)=>a+num(PF[k]),0),lr=$('leftRow');lr.className='ptot '+(left<0?'neg':left>0?'pos':'');
    $('leftV').textContent=(s>0||left)?fP(left)+(left<0?' (deficit)':''):'';}
-  LK.forEach(k=>{const e=$('bal_'+k),v=num(k+'Bal');e.textContent=v>0?'Balance: '+fP(v):'';e.style.display=v>0?'':'none';});
+  LK.forEach(k=>{const e=$('bal_'+k),v=num(k+'Bal'),inp=$(k+'P'),m=loanM(k);
+    if(!(v>0)){if(inp.value)inp.value='';$(k+'Pay').value='';}inp.disabled=!(v>0);$('f_'+k+'P').classList.toggle('off',!(v>0));
+    $(k+'Y').value=m?(m/12).toFixed(4):'';
+    e.textContent=v>0?'Balance: '+fP(v)+(m?' · paid off in about '+fmtM(m):''):'No balance entered in Step 2';e.style.display='';});
   const H=horizon(),inc=netInc(),liv=living(),am=amt(),net=inc-liv-am,ns=(inc>0||liv>0||am>0)&&net<=0;
   $('f_invR').style.display=invT()>0?'':'none';
   {const LN2={cc:'credit card',pl:'personal loan',car:'car loan',home:'housing loan'},msg=[];
-   const post=LK.reduce((s,k)=>s+(num(k+'Pay')>0?num(k+'Pay')*12*Math.max(0,Math.round(num(k+'Y'))-H.x):0),0);
+   const post=LK.reduce((s,k)=>s+num(k+'Pay')*Math.max(0,loanM(k)-12*H.x),0);
    if(H.x>0&&post>0)msg.push(`A loan runs past your retirement age of ${H.r}. The payments still due after that, about ${fP(post)}, will be taken from your nest egg.`);
-   LK.forEach(k=>{const tot=num(k+'Pay')*12*Math.round(num(k+'Y')),bal=num(k+'Bal');if(num(k+'Pay')>0&&tot>0&&tot<bal)msg.push(`Your ${LN2[k]} payments add up to ${fP(tot)}, less than the ${fP(bal)} you owe. Please check the amount or years left.`);});
    $('amYHint').innerHTML=msg.join('<br>');}
   $('amYHint').style.display=$('amYHint').innerHTML?'':'none';
   const tA=depT()+invT()+num('prop'),tL=LK.reduce((s,k)=>s+num(k+'Bal'),0),nw=tA-tL;
@@ -674,14 +676,14 @@ function pvGA(p,g,r,n){if(n<=0||(1+r)<=0)return 0;if(Math.abs(r-g)<1e-10)return 
 function fvOA(p,i,n){if(n<=0)return 0;if(Math.abs(i)<1e-12)return p*n;return p*(Math.pow(1+i,n)-1)/i;}
 function compute(rPct){
   const H=horizon(),x=H.x,r=rPct/100,dep=depT(),inv=invT(),sal=num('sal'),inc=netInc(),liv=living(),am=amt(),
-    LY=Object.fromEntries(LK.map(k=>[k,num(k+'Pay')>0?Math.round(num(k+'Y')):0])),netNow=inc-liv-am,ns=netNow<=0,want=invests==='Yes',
+    LM=Object.fromEntries(LK.map(k=>[k,loanM(k)])),LY=Object.fromEntries(LK.map(k=>[k,LM[k]/12])),netNow=inc-liv-am,ns=netNow<=0,want=invests==='Yes',
     pct=want?Math.min(100,num('pct'))/100:0,invR=inv>0?num('invR')/100:0,regR=want?(inv>0?invR:num('regR')/100):0;
   /* Each year: balances grow, then the year's cash flow is applied.
      Surplus: repays any personal loan first, then is split between regular investing (pct) and deposits.
      Deficit: drawn from deposits, then investments, then a new personal loan at PLR. Any loan left at retirement is paid from the nest egg. */
   let fvReg=0,totReg=0,depBal=dep,invBal=inv,plBal=0,plStart=0;
   for(let t=1;t<=x;t++){
-    const net=inc*12*Math.pow(1+GS,t-1)-liv*12*Math.pow(1+INF,t-1)-LK.reduce((s,k)=>s+(t<=LY[k]?num(k+'Pay'):0),0)*12;
+    const net=inc*12*Math.pow(1+GS,t-1)-liv*12*Math.pow(1+INF,t-1)-LK.reduce((s,k)=>s+num(k+'Pay')*Math.min(12,Math.max(0,LM[k]-12*(t-1))),0);
     depBal*=1+DEP;invBal*=1+invR;fvReg*=1+regR;plBal*=1+PLR;
     if(net>=0){const rp=Math.min(net,plBal);plBal-=rp;const rem=net-rp;let inv_t=0;
       if(rem>0&&want){const m=rem/12*pct;fvReg+=fvOA(m,regR/12,12);totReg+=m*12;inv_t=m*12;}
@@ -694,7 +696,7 @@ function compute(rPct){
     today=expMode==='own'?num('own'):liv,monthly=today*Math.pow(1+INF,x),
     aExp=monthly*12,aInc=oth*12,gap=aExp-aInc,
     /* loan payments still due after retirement are taken from the nest egg */
-    postRet=LK.reduce((s,k)=>s+num(k+'Pay')*12*Math.max(0,LY[k]-x),0),
+    postRet=LK.reduce((s,k)=>s+num(k+'Pay')*Math.max(0,LM[k]-12*x),0),
     nest=Math.max(0,capital+pay-plEnd-postRet),owed=Math.max(0,plEnd+postRet-capital-pay),
     /* retirement spending rises with inflation; other retirement income stays fixed */
     wd=(sp,i)=>Math.max(0,sp*Math.pow(1+INF,i-1)-aInc),
@@ -703,7 +705,7 @@ function compute(rPct){
     sustOf=cap=>{let lo=0,hi=aInc+1e5;while(pvNeed(hi)<cap&&hi<1e13)hi*=2;for(let k=0;k<80;k++){const m=(lo+hi)/2;if(pvNeed(m)<cap)lo=m;else hi=m;}return lo;},
     sust=sustOf(nest);
   const lasts=sp=>{if(wd(sp,period)<=0)return period;let f=nest,y=0;for(let i=1;i<=100;i++){const w=wd(sp,i);if(f-w<-0.01)return i-1;f=(f-w)*(1+r);y=i;if(f<=0.01&&wd(sp,i+1)>0)return i;}return y;};
-  return{...H,r,dep,inv,sal,inc,liv,am,LY,plEnd,plStart,netNow,want,pct,invR,regR,fvDep,fvInv,fvReg,totReg,capital,pay,oth,period,postRet,owed,postBy:Object.fromEntries(LK.map(k=>[k,num(k+'Pay')*12*Math.max(0,LY[k]-x)])),wd,sustOf,today,monthly,aExp,aInc,gap,nest,fund,required,short,sust,factor,lasts,fd:lasts(aExp),
+  return{...H,r,dep,inv,sal,inc,liv,am,LY,plEnd,plStart,netNow,want,pct,invR,regR,fvDep,fvInv,fvReg,totReg,capital,pay,oth,period,postRet,owed,LM,postBy:Object.fromEntries(LK.map(k=>[k,num(k+'Pay')*Math.max(0,LM[k]-12*x)])),wd,sustOf,today,monthly,aExp,aInc,gap,nest,fund,required,short,sust,factor,lasts,fd:lasts(aExp),
     insufficient:fund&&gap>0&&nest<gap};
 }
 
@@ -750,7 +752,7 @@ function validate(i){let first=null;const b=(id,m)=>{const f=bad(id,m);first=fir
     if(!has('ageNow')||a<1||a>100)b('f_ageNow','Please enter your age.');
     if(!has('age')||r<1||r>100)b('f_age','Please enter an age up to 100.');else if(has('ageNow')&&r<=a)b('f_age','This must be later than your current age.');}
   if(i===1){if(invT()>0&&(!has('invR')||num('invR')>30))b('f_invR');}
-  if(i===2){if(num('gsal')<=0)b('f_gsal');if(num('sal')<=0)b('f_sal');if(num('needsP')<=0)b('f_needsP');LK.forEach(k=>{if(num(k+'Bal')>0&&num(k+'P')<=0)b('f_'+k+'P','You owe '+fP(num(k+'Bal'))+' on this loan. Enter your monthly payment.');if(num(k+'P')>0&&Math.round(num(k+'Y'))<1)b('f_'+k+'Y');});
+  if(i===2){if(num('gsal')<=0)b('f_gsal');if(num('sal')<=0)b('f_sal');if(num('needsP')<=0)b('f_needsP');LK.forEach(k=>{if(num(k+'Bal')>0&&num(k+'P')<=0)b('f_'+k+'P','You owe '+fP(num(k+'Bal'))+' on this loan. Enter your monthly payment.');});
     const ns=netInc()-living()-amt()<=0;
     if(invests==='Yes'){if(!has('pct')||num('pct')>100)b('f_pct');if(!(invT()>0)&&(!has('regR')||num('regR')>30))b('f_regR');}}
   if(i===3){if(num('depAmt')>0&&Math.round(num('depYrs'))<1)b('f_depYrs');if(num('life')>0&&Math.round(num('lifeTo'))<=horizon().a)b('f_lifeTo');}
@@ -783,6 +785,8 @@ $('toDash').onclick=()=>{dashInit();show(7);};
 $('toPlan').onclick=()=>gate('plan',()=>{rView=RET;$('rS').value=RET;touched=false;initPlan();syncExp();show(8);requestAnimationFrame(drawChart);});
 
 /* ── SCREEN: RETIREMENT LIFE ── */
+const loanM=k=>{const b=num(k+'Bal'),p=num(k+'Pay');return b>0&&p>0?Math.ceil(b/p-1e-9):0;};
+const fmtM=m=>{const y=Math.floor(m/12),mo=m%12;return [y?y+(y>1?' yrs':' yr'):'',mo?mo+(mo>1?' mos':' mo'):''].filter(Boolean).join(' ');};
 const owedTxt=c=>c.owed>0?`You'd retire owing <b>${fP(c.owed)}</b>, even after using all your savings, investments and retirement pay.`:(c.plEnd+c.postRet>0?`This is after setting aside ${fP(c.plEnd+c.postRet)} for loans still due at retirement.`:'');
 function debtNote(c,plain){const LS={cc:'credit card',pl:'personal loan',car:'car loan',home:'housing loan'},b=plain?s=>s:s=>`<b>${s}</b>`,items=[];
   if(c.plEnd>=1)items.push(`${fP(c.plEnd)}: the personal loan that covered your monthly deficit`);
@@ -1017,7 +1021,7 @@ function buildReport(){
   const I=idealCover(depM(),num('depYrs')),ln={cc:'Credit card',pl:'Personal loans',car:'Car loans',home:'Housing loans'};
   const inputs=[['Current age',a.a],['Retirement age',a.r],['Cash',fP(num('cash'))],['Emergency fund',fP(num('ef'))],['Other investments',fP(num('inv'))],...(c.inv>0?[['Estimated return on investments',trim(c.invR*100)+'% p.a.']]:[]),['Home, car and others',fP(num('prop'))],
     ...LK.map(k=>[ln[k]+' balance',fP(num(k+'Bal'))]),
-    ['Basic gross monthly salary',fP(num('gsal'))],['Monthly salary (take-home)',fP(c.sal)],['Other income',fP(num('othInc'))],['Essential living expenses',fP(num('needs'))],['Other spending',fP(num('wants'))],...LK.filter(k=>num(k+'P')>0).map(k=>[ln[k]+' payment',fP(num(k+'Pay'))+' for '+c.LY[k]+' yrs']),['Total loan payments',fP(c.am)],['Monthly surplus / (deficit)',fP(c.netNow)],
+    ['Basic gross monthly salary',fP(num('gsal'))],['Monthly salary (take-home)',fP(c.sal)],['Other income',fP(num('othInc'))],['Essential living expenses',fP(num('needs'))],['Other spending',fP(num('wants'))],...LK.filter(k=>num(k+'P')>0).map(k=>[ln[k]+' payment',fP(num(k+'Pay'))+' for about '+fmtM(c.LM[k])]),['Total loan payments',fP(c.am)],['Monthly surplus / (deficit)',fP(c.netNow)],
     ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of surplus invested',fmt(c.pct*100)+'%'],['Return on regular investing',trim(c.regR*100)+'% p.a.']]:[]),
     ['Support for dependents',I.s>0?(depMode==='y'?fP(I.s*12)+'/yr':fP(I.s)+'/mo')+' for '+I.n+' yrs':'None'],['Ideal insurance coverage',fP(I.v)],['BPI group life while employed (48× BMS)',fP(glEmp())],['BPI group life once retired (24× BMS, max ₱10M)',fP(glRet())],['Other life insurance',fP(num('life'))+(num('life')>0?' until age '+Math.round(num('lifeTo')):'')],...coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')).map(s=>['Coverage check, '+s.label,(s.ok?'✓ ':'! ')+fP(s.cover)+' vs '+fP(s.need)+' needed'+(s.ok?'':', short '+fP(s.need-s.cover))]),...(()=>{const st=coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')),e=extraCover(st);return e.g>0?[['Additional insurance coverage needed',fP(e.g)+' until age '+e.until]]:[];})(),
     ['Monthly expense at retirement',(expMode==='own'?'Own figure, ':'Computed, ')+fP(c.monthly)],['Other income in retirement, monthly (fixed)',fP(c.oth)],['Expected retirement pay',fP(c.pay)],['Years in retirement',c.period]];
