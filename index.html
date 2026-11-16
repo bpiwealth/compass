@@ -432,7 +432,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
         <div class="rw"><div class="rw-t"><span>Savings</span><b id="v_sv"></b></div></div>
         <div class="rw"><div class="rw-t"><span>Emergency fund</span><b id="v_ef"></b></div></div>
         <div class="rw"><div class="rw-t"><span>Investments</span><b id="v_inv"></b></div></div>
-        <div class="rw"><div class="rw-t"><span>Hard assets</span><b id="v_prop"></b></div></div>
+        <div class="rw"><div class="rw-t"><span>Other assets</span><b id="v_prop"></b></div></div>
         <span class="chip2" id="c_ef"></span>
         <p class="dc-n">Savings and investments are shown 1 year from now.</p>
       </div>
@@ -578,7 +578,7 @@ const fP=n=>(n<0?'(₱'+fmt(n)+')':'₱'+fmt(n));
 const trim=n=>{const s=(+n).toFixed(2);return s.replace(/\.?0+$/,'');};
 const abbr=n=>n>=1e9?(n/1e9).toFixed(1)+'B':n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(0)+'K':n.toFixed(0);
 const DISC=[
- 'My Compass is provided solely for general informational and educational purposes. It does not constitute legal, tax, financial, or investment advice. You should consult a qualified financial advisor for advice tailored to your specific circumstances.',
+ 'My Compass is provided solely for general informational and educational purposes. It does not constitute legal, tax, financial, or investment advice. You should consult your tax, legal, and investment advisor for advice tailored to your specific circumstances.',
  'Use of My Compass does not create any fiduciary or other professional relationship between you and BPI Wealth, or any of its affiliates.',
  'Projections assume a 0.05% p.a. deposit rate, a 3.75% p.a. salary increase, a 4.25% p.a. net return on the retirement fund (the 10-year average yield of the 10-year Philippine Government Security), and 3.75% p.a. inflation (the average 20-year Philippine inflation rate). If spending is more than income, the gap is covered by savings, then investments, then a personal loan at an indicative BPI rate of 26% p.a., subject to change. Loan payoff time is estimated as balance ÷ monthly payment. Actual results will vary.',
  'Accordingly, all results are estimates only and are indicative in nature. They do not substitute for the advice or review of a licensed professional, and should not be relied upon as a guarantee of future results.'];
@@ -1001,7 +1001,7 @@ function pfTable(M,amt){const show=amt>0;
    M.a.map(([k,p])=>{const [n,c,t]=FUNDS[k];return `<div class="pf-r"><span>${n}</span><b style="background:${c};color:${t}">${p}%</b>${show?`<em>${fP(amt*p/100)}</em>`:''}</div>`;}).join('')+
    `<div class="pf-t"><span>TOTAL</span><span>100%${show?' · '+fP(amt):''}</span></div>`;}
 const PFG='Minimum investment for government securities is ₱500,000. Each fund needs at least ₱1,000.';
-const PFN='Illustrative model only. It is not a recommendation for your specific age, goals or risk profile. Please confirm suitability with your advisor.';
+const PFN='Illustrative model only. It is not a recommendation for your specific age, goals or risk profile. Please confirm suitability with your Personal Wealth Advisor.';
 function renderPf(){const M=MODELS[pfM],amt=num('pfAmt');
   $('pf').innerHTML=`<div class="pf-h">${M.t}</div><div class="pf-s">${M.d}</div><div class="lab" style="text-align:center">Recommended outlets</div><div class="pf-pie">${pieSVG(M)}</div>${pfTable(M,amt)}`+
    (()=>{const mn=Math.min(...M.a.map(x=>x[1])),need=Math.ceil(1000/(mn/100)/1000)*1000;return amt>0&&amt*mn/100<1000?`<div class="warnx">Invest at least <b>${fP(need)}</b> so every fund gets the ₱1,000 minimum.</div>`:'';})()+
@@ -1019,11 +1019,11 @@ function buildReport(){
   c0.r0=a.r;const date=new Date().toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
   const f=c.fund&&c.short>0?fundCalc(c,+$('fR').value):null,spM=+$('sp').value,sr=spendRes(c,spM);
   const I=idealCover(depM(),num('depYrs')),ln={cc:'Credit card',pl:'Personal loans',car:'Car loans',home:'Housing loans'};
-  const inputs=[['Current age',a.a],['Retirement age',a.r],['Cash',fP(num('cash'))],['Emergency fund',fP(num('ef'))],['Other investments',fP(num('inv'))],...(c.inv>0?[['Estimated return on investments',trim(c.invR*100)+'% p.a.']]:[]),['Home, car and others',fP(num('prop'))],
+  const inputs=[['Current age',a.a],['Retirement age',a.r],['Cash',fP(num('cash'))],['Emergency fund',fP(num('ef'))],['Other investments',fP(num('inv'))],['Home, car and others',fP(num('prop'))],
     ...LK.map(k=>[ln[k]+' balance',fP(num(k+'Bal'))]),
-    ['Basic gross monthly salary',fP(num('gsal'))],['Monthly salary (take-home)',fP(c.sal)],['Other income',fP(num('othInc'))],['Essential living expenses',fP(num('needs'))],['Other spending',fP(num('wants'))],...LK.filter(k=>num(k+'P')>0).map(k=>[ln[k]+' payment',fP(num(k+'Pay'))+' for about '+fmtM(c.LM[k])]),['Total loan payments',fP(c.am)],['Monthly surplus / (deficit)',fP(c.netNow)],
-    ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of surplus invested',fmt(c.pct*100)+'%'],['Return on regular investing',trim(c.regR*100)+'% p.a.']]:[]),
-    ['Support for dependents',I.s>0?(depMode==='y'?fP(I.s*12)+'/yr':fP(I.s)+'/mo')+' for '+I.n+' yrs':'None'],['Ideal insurance coverage',fP(I.v)],['BPI group life while employed (48× BMS)',fP(glEmp())],['BPI group life once retired (24× BMS, max ₱10M)',fP(glRet())],['Other life insurance',fP(num('life'))+(num('life')>0?' until age '+Math.round(num('lifeTo')):'')],...coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')).map(s=>['Coverage check, '+s.label,(s.ok?'✓ ':'! ')+fP(s.cover)+' vs '+fP(s.need)+' needed'+(s.ok?'':', short '+fP(s.need-s.cover))]),...(()=>{const st=coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')),e=extraCover(st);return e.g>0?[['Additional insurance coverage needed',fP(e.g)+' until age '+e.until]]:[];})(),
+    ['Basic gross monthly salary',fP(num('gsal'))],['Monthly salary (take-home)',fP(c.sal)],['Other income',fP(num('othInc'))],['Essential living expenses',fP(num('needs'))],['Other spending',fP(num('wants'))],['Total loan payments',fP(c.am)],['Monthly surplus / (deficit)',fP(c.netNow)],
+    ['Invests regularly',c.want?'Yes':'No'],...(c.want?[['Share of surplus invested',fmt(c.pct*100)+'%']]:[]),
+    ['Support for dependents',I.s>0?(depMode==='y'?fP(I.s*12)+'/yr':fP(I.s)+'/mo')+' for '+I.n+' yrs':'None'],['BPI group life while employed (48× BMS)',fP(glEmp())],['BPI group life once retired (24× BMS, max ₱10M)',fP(glRet())],['Other life insurance',fP(num('life'))+(num('life')>0?' until age '+Math.round(num('lifeTo')):'')],...coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')).map(s=>['Coverage check, '+s.label,(s.ok?'✓ ':'! ')+fP(s.cover)+(s.ok?'':', short '+fP(s.need-s.cover))]),...(()=>{const st=coverStages(num('gsal'),num('life'),num('lifeTo'),depM(),num('depYrs')),e=extraCover(st);return e.g>0?[['Additional insurance coverage needed',fP(e.g)+' until age '+e.until]]:[];})(),
     ['Monthly expense at retirement',(expMode==='own'?'Own figure, ':'Computed, ')+fP(c.monthly)],['Other income in retirement, monthly (fixed)',fP(c.oth)],['Expected retirement pay',fP(c.pay)],['Years in retirement',c.period]];
   const assump=[['Deposit rate','0.05% p.a.'],['Salary increase','3.75% p.a.'],['Retirement fund return','4.25% p.a.'],['Inflation','3.75% p.a.'],['Personal loan rate, to cover any deficit','26% p.a. (indicative BPI rate)']];
   const M=MODELS[pfM],amt=num('pfAmt');
@@ -1034,11 +1034,11 @@ function buildReport(){
    sec('Your Financial Health Check',R.map(x=>row(`${x.n} (benchmark: ${x.b})`,`${x.s(x.v)} · ${x.z==='H'?'Healthy':'Watch'}`)).join(''))+
    (rView!==RET?`<p class="rp-p"><b>The options below use a ${trim(rView)}% p.a. retirement fund return</b>, as set on the Visual Overview slider. Option 1 above uses 4.25%.</p>`:'')+
    sec('Adjust your Lifestyle',`<div class="rp-g">${row('You entered (monthly)',fP(c.today))}${row("Sustainable monthly expense, today's prices",fP(c.sust/12/Math.pow(1+INF,c.x)))}</div><p class="rp-p" style="margin-top:5px">Spending target selected: ${sr.txt.replace(/<[^>]+>/g,'')}</p>`)+
-   sec('Desired Lifestyle',f?`<div class="rp-g">${row('Set aside monthly, starting now',fP(f.monthly))}${row('Assumed return',trim(+$('fR').value)+'% p.a.')}${row('Total additional amount needed at age '+a.r,fP(c.short))}${row('Or one-time amount today',fP(f.lump))}${num('sa')>0?(()=>{const x=saCalc(c,num('sa'),+$('fR').value);return row('If you set aside '+fP(num('sa'))+' a month, you can live on',fP(x.today)+" (today's prices)")})():''}</div>`:'<p class="rp-p">Your nest egg already covers your desired lifestyle. No additional investment required.</p>')+
+   sec('Desired Lifestyle',f?`<div class="rp-g">${row('Set aside monthly, starting now',fP(f.monthly))}${row('Assumed return',trim(+$('fR').value)+'% p.a.')}${row('Total additional amount needed at age '+a.r,fP(c.short))}${row('Or one-time amount today',fP(f.lump))}${num('sa')>0?(()=>{const x=saCalc(c,num('sa'),+$('fR').value);return '</div><p class="rp-p" style="margin-top:5px">If you set aside <b>'+fP(num('sa'))+' a month</b> from now until age '+a.r+', you can spend <b>'+fP(x.today)+' a month</b> in retirement for '+c.period+' years, in today\'s prices.</p><div>'})():''}</div>`:'<p class="rp-p">Your nest egg already covers your desired lifestyle. No additional investment required.</p>')+
    (()=>{const S=dashNow();const tg=(ok,t)=>`${ok?'✓':'!'} ${t}`;
      return sec('Your money at a glance',`<div class="rp-g"><div>${row('<b>Income</b>','<b>'+fP(S.inc)+'</b>')}${row('Salary (take-home)',fP(S.sal))}${row('Other income',fP(S.othInc))}
        ${row('<b>Expense</b>','<b>'+fP(S.exp)+'</b>')}${row('Essential living',fP(S.needs))}${row('Loan payments',fP(S.am))}${row('Other expenses',fP(S.wants))}${row('<b>Net cash flow, monthly</b>','<b>'+fP(S.ncf)+'</b>')}${row('Invested / saved monthly',fP(S.invM)+' / '+fP(S.savM))}</div>
-       <div>${row('<b>Assets</b>','<b>'+fP(S.assets)+'</b>')}${row('Savings, in 1 year',fP(S.cash1))}${row('Emergency fund',fP(S.ef1))}${row('Investments, in 1 year',fP(S.inv))}${row('Hard assets',fP(S.prop))}
+       <div>${row('<b>Assets</b>','<b>'+fP(S.assets)+'</b>')}${row('Savings, in 1 year',fP(S.cash1))}${row('Emergency fund',fP(S.ef1))}${row('Investments, in 1 year',fP(S.inv))}${row('Other assets',fP(S.prop))}
        ${row('<b>Liabilities</b>','<b>'+fP(S.debt)+'</b>')}${LK.map(k=>row(ln[k],fP(S[k])+' · '+fP(S[k+'Pay'])+'/mo')).join('')}</div></div>
        <div class="rp-g" style="margin-top:4px">${row('Savings ratio',tg(S.setA>S.inc*.2,'set aside at least '+fP(S.inc*.2)+'/mo'))}${row('Debt to income',tg(S.am<S.inc*.35,'payments at most '+fP(S.inc*.35)+'/mo'))}${row('Emergency fund',tg(S.ef1>=S.exp*6,'at least '+fP(S.exp*6)))}${row('Debt to assets',tg(S.debt<S.assets*.35||S.debt===0,'debt at most '+fP(S.assets*.35)))}</div>`);})()+
    sec('Visual Overview',`<div class="rp-ch">${balSVG(c)}</div><div class="rp-g" style="margin-top:6px">${yrsData(c).map(r=>row(r.l+', fund lasts until',`age ${a.r+r.y}`)).join('')}</div>`)+
