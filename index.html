@@ -196,6 +196,7 @@ footer{max-width:560px;margin:0 auto;padding:6px 16px calc(24px + var(--safe));f
 .dfull{margin-top:6px}.dfull summary{cursor:pointer;font-weight:700;color:var(--ruby);min-height:36px;display:flex;align-items:center}
 #disc h5,.dfull h5{font-size:.74rem;font-weight:800;color:var(--g800);margin:10px 0 3px}#disc ul,.dfull ul{margin:0 0 6px 16px}#disc li,.dfull li{margin-bottom:2px}.dtab{border-collapse:collapse;margin:2px 0 6px;width:100%}.dtab td{border-bottom:1px solid #eeecea;padding:3px 6px 3px 0;vertical-align:top}.asof{font-weight:700;color:var(--g600)}
 .dacc{margin-top:8px;border-top:1px solid var(--g200)}.dsec{border-bottom:1px solid var(--g200)}.dsec summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:44px;font-weight:700;color:var(--g800);font-size:.74rem}.dsec summary::-webkit-details-marker{display:none}.dsec summary::after{content:"+";font-size:1rem;font-weight:700;color:var(--ruby);flex-shrink:0}.dsec[open] summary::after{content:"−"}.dsec-b{padding:0 0 10px}.dsec-b p{margin-bottom:5px}.dsec-b ul{margin:0 0 6px 16px}
+.pfd{margin-top:12px;font-size:.78rem;color:var(--g600);line-height:1.5;background:var(--g50);border:1px solid #eeecea;border-radius:10px;padding:10px 12px}.pfd p{margin-bottom:4px}.pfmore summary{cursor:pointer;font-weight:700;color:var(--ruby);min-height:40px;display:flex;align-items:center}.pfmore h5{font-size:.76rem;font-weight:800;color:var(--g800);margin:8px 0 3px}.pfmore ul{margin:0 0 6px 16px}.pfmore li{margin-bottom:3px}
 footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g600);margin-bottom:5px}footer p{margin-bottom:6px}
 
 .modal{position:fixed;inset:0;z-index:50;display:none;background:rgba(44,20,24,.62);align-items:flex-end;justify-content:center}
@@ -215,6 +216,7 @@ footer h4{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:u
 
 #report{display:none}
 @media print{
+  .rp-pfd{font-size:8pt;line-height:1.4;margin-top:6pt;break-inside:avoid}.rp-pfd h5{font-size:8.5pt;font-weight:800;margin:4pt 0 1pt}.rp-pfd p{margin:0 0 3pt}.rp-pfd ul{margin:0 0 3pt 12pt}
   .rp-sum{font-size:8.5pt;font-weight:600;border:1pt solid #9B1B2A;border-radius:4pt;padding:6pt 8pt;margin:0 0 10pt;color:#5a1018}
   .rp-disc{font-size:8pt;line-height:1.4;break-inside:auto}.rp-disc h5{font-size:8.5pt;font-weight:800;margin:6pt 0 2pt}.rp-disc p{margin:0 0 3pt}.rp-disc ul{margin:0 0 3pt 12pt}.rp-disc .dtab td{border-bottom:.4pt solid #ddd;padding:1.5pt 4pt}
   @page{size:A4 portrait;margin:12mm}
@@ -1005,12 +1007,12 @@ function pfTable(M,amt){const show=amt>0;
   return `<div class="pf-prof"><span>Risk Profile</span><span style="text-align:right">${M.p}</span></div>`+
    M.a.map(([k,p])=>{const [n,c,t]=FUNDS[k];return `<div class="pf-r"><span>${n}</span><b style="background:${c};color:${t}">${p}%</b>${show?`<em>${fP(amt*p/100)}</em>`:''}</div>`;}).join('')+
    `<div class="pf-t"><span>TOTAL</span><span>100%${show?' · '+fP(amt):''}</span></div>`;}
-const PFG='Minimum investment for government securities is ₱500,000. Each fund needs at least ₱1,000.';
-const PFN='For illustration only. This shows how the amount could be split. It is not a recommendation or an offer. Please confirm suitability with your BPI Personal Wealth Advisor.';
+const PFG='<b>For illustration only.</b> The sample allocations show how an amount could be split across funds for a general risk profile: Moderately Aggressive at age 50, and Moderately Conservative at age 60. They are not a recommendation, an offer or a solicitation to buy any fund or security. They do not consider your own risk profile, goals, time horizon, liquidity needs or existing investments.';
+const PFN='<h5>Suitability comes first</h5><p>Before investing, complete a risk profile assessment with your BPI Personal Wealth Advisor, who will confirm whether any fund or security suits you.</p><h5>Investment risks</h5><ul><li><b>Funds:</b> UITFs and mutual funds are not deposit products and are not insured by the PDIC. Their returns are not guaranteed, their unit values go up and down, and you may lose part or all of what you invest. Any losses are borne by the investor. Past performance does not indicate future results.</li><li><b>Bonds:</b> Government and corporate bonds carry interest rate, credit and liquidity risks. Their value may fall if sold before maturity.</li><li><b>Documents to read:</b> Before investing, read each product\'s official documents, such as the Key Information and Investment Disclosure Statement (KIIDS) for UITFs, or the prospectus for mutual funds.</li></ul><h5>Amounts and minimums</h5><ul><li><b>Amounts shown:</b> Peso amounts are rounded and do not include fees, charges or taxes.</li><li><b>Minimums:</b> Each fund has a ₱1,000 minimum, and government securities have a ₱500,000 minimum.</li><li><b>Subject to change:</b> Minimums, fees and product availability may change at any time.</li></ul><h5>Products shown</h5><p>The funds named are offered by BPI and its affiliates. Other products, including those not offered by BPI, may also suit your needs.</p>';
 function renderPf(){const M=MODELS[pfM],amt=num('pfAmt');
   $('pf').innerHTML=`<div class="pf-h">${M.t}</div><div class="pf-s">${M.d}</div><div class="lab" style="text-align:center">Sample allocation</div><div class="pf-pie">${pieSVG(M)}</div>${amt>0?`<div class="lab" style="margin:4px 0 6px">How ${fP(amt)} could be split in this sample allocation</div>`:''}${pfTable(M,amt)}`+
    (()=>{const mn=Math.min(...M.a.map(x=>x[1])),need=Math.ceil(1000/(mn/100)/1000)*1000;return amt>0&&amt*mn/100<1000?`<div class="warnx">Each fund has a ₱1,000 minimum. This illustration works from about <b>${fP(need)}</b>, so every fund gets at least ₱1,000.</div>`:'';})()+
-   `<div class="fine">${PFG}</div><div class="fine">${PFN}</div><div class="fine">${CONF}</div>`;}
+   `<div class="pfd"><p>${PFG}</p><details class="pfmore"><summary>Read more</summary>${PFN}</details></div><div class="fine">${CONF}</div>`;}
 function setPf(m){pfM=m;document.querySelectorAll('[data-pf]').forEach(x=>x.classList.toggle('on',+x.dataset.pf===m));renderPf();}
 document.querySelectorAll('[data-pf]').forEach(b=>b.onclick=()=>{pfPicked=true;setPf(+b.dataset.pf);});
 $('pfAmt').addEventListener('input',renderPf);
@@ -1047,7 +1049,7 @@ function buildReport(){
        ${row('<b>Liabilities</b>','<b>'+fP(S.debt)+'</b>')}${LK.map(k=>row(ln[k],fP(S[k])+' · '+fP(S[k+'Pay'])+'/mo')).join('')}</div></div>
        <div class="rp-g" style="margin-top:4px">${row('Savings ratio',tg(S.setA>S.inc*.2,'set aside at least '+fP(S.inc*.2)+'/mo'))}${row('Debt to income',tg(S.am<S.inc*.35,'payments at most '+fP(S.inc*.35)+'/mo'))}${row('Emergency fund',tg(S.ef1>=S.exp*6,'at least '+fP(S.exp*6)))}${row('Debt to assets',tg(S.debt<S.assets*.35||S.debt===0,'debt at most '+fP(S.assets*.35)))}</div>`);})()+
    sec('Visual Overview',`<div class="rp-ch">${balSVG(c)}</div><div class="rp-g" style="margin-top:6px">${yrsData(c).map(r=>row(r.l+', fund lasts until',`age ${a.r+r.y}`)).join('')}</div>`)+
-   sec(M.t,`<p class="rp-p"><i>${M.d}</i></p><div class="rp-pf"><div>${row('Risk Profile',M.p)}${M.a.map(([k,p])=>row(FUNDS[k][0],p+'%'+(amt>0?' · '+fP(amt*p/100):''))).join('')}${row('TOTAL','100%'+(amt>0?' · '+fP(amt):''))}</div><div>${pieSVG(M)}</div></div><p class="fine" style="margin-top:6px">${PFG} ${PFN}</p>`)+
+   sec(M.t,`<p class="rp-p"><i>${M.d}</i></p><div class="rp-pf"><div>${row('Risk Profile',M.p)}${M.a.map(([k,p])=>row(FUNDS[k][0],p+'%'+(amt>0?' · '+fP(amt*p/100):''))).join('')}${row('TOTAL','100%'+(amt>0?' · '+fP(amt):''))}</div><div>${pieSVG(M)}</div></div><div class="rp-pfd"><p>${PFG}</p>${PFN}</div>`)+
    `<div class="rp-s rp-disc"><h2>Disclaimer</h2>${DISC_FULL}</div><p class="fine">${CONF}</p>`;
 }
 sync();
